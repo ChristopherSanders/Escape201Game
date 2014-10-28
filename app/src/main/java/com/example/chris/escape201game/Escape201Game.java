@@ -13,7 +13,7 @@ import android.widget.Button;
 public class Escape201Game extends Activity {
 
     private MediaPlayer mPlayer;
-    private int currentSong;
+    public int currentSong;
     Button settingsBtn, levelsBtn, playBtn, level1Btn;
 
     @Override
@@ -26,71 +26,38 @@ public class Escape201Game extends Activity {
         playBtn = (Button) findViewById(R.id.playBtnID);
         level1Btn = (Button) findViewById(R.id.level1BtnID);
 
-//        if (getCallingActivity() == LevelandSettingsScreen) {
-//            mPlayer = MediaPlayer.create(this, R.raw.song1);
-//            currentSong = R.raw.song1;
-//        } else if (number == 2) {
-//            mPlayer = MediaPlayer.create(this, R.raw.song2);
-//            currentSong = R.raw.song2;
-//
-//        } else if (number == 3) {
-//            mPlayer = MediaPlayer.create(this, R.raw.song3);
-//            currentSong = R.raw.song3;
-//
-//        } else if (number == 4) {
-//            mPlayer = MediaPlayer.create(this, R.raw.song4);
-//            currentSong = R.raw.song4;
-//
-//            // Defaults are always a good idea:
-//        } else {
-            mPlayer = MediaPlayer.create(this, R.raw.song1);
-            currentSong = R.raw.song1;
-
-//        }
+        mPlayer = MediaPlayer.create(this, R.raw.song1);
+        currentSong = R.raw.song1;
 
         mPlayer.start();
-
-//        createListeners();
-
-
     }
 
-//    private void startSettingsScreenActivity(int buttonNum) {
-//        Intent intent = new Intent(this, SettingsScreen.class);
-//        intent.putExtra("BUTTON NUMBER", buttonNum);
-//        startActivity(intent);
-//    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mPlayer.isPlaying()) {
+            mPlayer.pause();
+        }
+    }
 
-//    private void createListeners(){
-//        settingsBtn.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                startSettingsScreenActivity(1);
-//                // TODO Auto-generated method stub
-//            }
-//        });
-//
-//        levelsBtn.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                // TODO Auto-generated method stub
-//            }
-//        });
-//
-//        playBtn.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                // TODO Auto-generated method stub
-//            }
-//        });
-//
-//        level1Btn.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                // TODO Auto-generated method stub
-//            }
-//        });
-//    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mPlayer == null) {
+            mPlayer = MediaPlayer.create(this, currentSong);
+        }
 
+        mPlayer.start();
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
 
-
+        if (mPlayer.isPlaying()) {
+            mPlayer.stop();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

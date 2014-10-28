@@ -1,17 +1,18 @@
 package com.example.chris.escape201game;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class SettingsScreen extends Activity {
+public class SettingsScreen extends LevelandSettingsScreen {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_screen);
+
+        currentSong = R.raw.song3;
     }
 
 
