@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Escape201Game</string>
+    <string name="app_name">Escape 201</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_settings_screen">SettingsScreen</string>
+    <string name="title_activity_level_select_screen">LevelSelectScreen</string>
+    <string name="play_btn">Play!</string>
+    <string name="settings_btn">Change Settings</string>
+    <string name="level_select_btn">Level Select</string>
+    <string name="level_1_btn">Level 1</string>
+    <string name="title_activity_leveland_settings_screen">LevelandSettingsScreen</string>
 
 </resources>

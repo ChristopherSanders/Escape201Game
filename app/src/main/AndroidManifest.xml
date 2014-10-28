@@ -9,12 +9,28 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".Escape201Game"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".SettingsScreen"
+            android:label="@string/title_activity_settings_screen"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".LevelSelectScreen"
+            android:label="@string/title_activity_level_select_screen"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".LevelandSettingsScreen"
+            android:label="@string/title_activity_leveland_settings_screen"
+            android:screenOrientation="landscape" >
         </activity>
     </application>
 
