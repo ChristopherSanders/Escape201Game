@@ -1,8 +1,10 @@
 package com.example.chris.escape201game;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class LevelandSettingsScreen extends Escape201Game {
@@ -33,5 +35,12 @@ public class LevelandSettingsScreen extends Escape201Game {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void gotoActivity(View v){
+        Intent intent = new Intent(this, LevelSelectScreen.class);
+        currentSong = R.raw.song2;
+        startActivity(intent);
     }
 }
