@@ -27,10 +27,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/main_title"
         android:id="@+id/titleID"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="25dp"
         android:textColor="#ffffffff"
         android:layout_above="@+id/playBtnID"
-        android:layout_alignLeft="@+id/playBtnID"
-        android:layout_alignStart="@+id/playBtnID" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
