@@ -29,6 +29,8 @@ public class Escape201Game extends Activity {
         mPlayer = MediaPlayer.create(this, R.raw.song1);
         currentSong = R.raw.song1;
 
+        getActionBar().hide();
+
         mPlayer.start();
     }
 

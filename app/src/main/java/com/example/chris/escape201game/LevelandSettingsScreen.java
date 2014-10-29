@@ -13,8 +13,6 @@ public class LevelandSettingsScreen extends Escape201Game {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leveland_settings_screen);
-
-        currentSong = R.raw.song2;
     }
 
 
@@ -37,10 +35,13 @@ public class LevelandSettingsScreen extends Escape201Game {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void gotoActivity(View v){
+    public void gotoLevelSelectActivity(View v){
         Intent intent = new Intent(this, LevelSelectScreen.class);
-        currentSong = R.raw.song2;
+        startActivity(intent);
+    }
+
+    public void gotoSettingsActivity(View v){
+        Intent intent = new Intent(this, SettingsScreen.class);
         startActivity(intent);
     }
 }

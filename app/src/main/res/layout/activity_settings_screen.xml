@@ -9,18 +9,4 @@
     tools:context="com.example.chris.escape201game.SettingsScreen"
     android:background="@drawable/background">
 
-    <TextView
-        android:text="@string/title_activity_settings_screen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/settingsScreenID" />
-
-    <ImageButton
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/imageButton"
-        android:src="@drawable/background"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
 </RelativeLayout>
