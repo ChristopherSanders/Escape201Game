@@ -61,7 +61,7 @@ public class Level1 extends LevelSelectScreen {
         lightSwitchBtn.setVisibility(View.GONE);
     }
 
-//    public void gotoLightswitch(View v){
+//    public void gotoLightSwitch(View v){
 //
 //    }
 
@@ -72,6 +72,9 @@ public class Level1 extends LevelSelectScreen {
         keypadBtn.setVisibility(View.GONE);
         trashBtn.setVisibility(View.GONE);
         lightSwitchBtn.setVisibility(View.GONE);
+
+        Toast toast = Toast.makeText(getApplicationContext(),"You see the numbers 476 in the trash!",Toast.LENGTH_LONG);
+        toast.show();
 
         backBtn.setVisibility(View.VISIBLE);
     }
