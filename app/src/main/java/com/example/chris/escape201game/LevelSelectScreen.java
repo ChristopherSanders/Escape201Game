@@ -1,8 +1,10 @@
 package com.example.chris.escape201game;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class LevelSelectScreen extends LevelandSettingsScreen {
@@ -11,8 +13,6 @@ public class LevelSelectScreen extends LevelandSettingsScreen {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_select_screen);
-
-        currentSong = R.raw.song4;
     }
 
 
@@ -33,5 +33,24 @@ public class LevelSelectScreen extends LevelandSettingsScreen {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void gotoActivity(View v){
+        Intent intent = new Intent(this, LevelandSettingsScreen.class);;
+        if (v == level1Btn){
+            currentSong = R.raw.song2;
+            intent = new Intent(this, Level1.class);
+        }
+        else if (v == level2Btn){
+            currentSong = R.raw.song3;
+            intent = new Intent(this, Level1.class);
+        }
+        else if (v == level3Btn){
+            currentSong = R.raw.song4;
+            intent = new Intent(this, Level1.class);
+        }
+        onResume();
+        startActivity(intent);
     }
 }

@@ -11,20 +11,23 @@
 
     <TextView
         android:text="@string/level_select_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/levelSelectID"
         android:textSize="35sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
         android:focusableInTouchMode="false"
         android:textColor="#ffffffff"
         android:textStyle="bold"
         android:typeface="normal"
         android:textIsSelectable="false"
         android:shadowColor="#ff000000"
-        android:singleLine="false" />
+        android:singleLine="false"
+        android:background="#7a000000"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -33,7 +36,7 @@
         android:id="@+id/level1BtnID"
         android:onClick="gotoActivity"
         android:layout_marginLeft="55dp"
-        android:layout_alignTop="@+id/button"
+        android:layout_alignTop="@+id/level2BtnID"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -41,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/level_2_btn"
-        android:id="@+id/button"
+        android:id="@+id/level2BtnID"
         android:onClick="gotoActivity"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
@@ -53,7 +56,7 @@
         android:id="@+id/button2"
         android:onClick="gotoActivity"
         android:layout_marginRight="65dp"
-        android:layout_alignTop="@+id/button"
+        android:layout_alignTop="@+id/level2BtnID"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 

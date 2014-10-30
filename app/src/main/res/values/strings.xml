@@ -13,5 +13,9 @@
     <string name="level_3_btn">Level 3</string>
     <string name="title_activity_leveland_settings_screen">LevelandSettingsScreen</string>
     <string name="main_title">Escape 201</string>
+    <string name="sound_effects_check">Sound Effects Enabled</string>
+    <string name="music_check">Music Enabled</string>
+    <string name="tips_check">Tips Enabled</string>
+    <string name="title_activity_level1">Level1</string>
 
 </resources>

@@ -14,7 +14,7 @@ public class Escape201Game extends Activity {
 
     private MediaPlayer mPlayer;
     public int currentSong;
-    Button settingsBtn, levelsBtn, playBtn, level1Btn;
+    Button settingsBtn, levelsBtn, playBtn, level1Btn, level2Btn, level3Btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,8 @@ public class Escape201Game extends Activity {
         levelsBtn = (Button) findViewById(R.id.levelsBtnID);
         playBtn = (Button) findViewById(R.id.playBtnID);
         level1Btn = (Button) findViewById(R.id.level1BtnID);
-
+        level2Btn = (Button) findViewById(R.id.level2BtnID);
+        level3Btn = (Button) findViewById(R.id.level2BtnID);
         mPlayer = MediaPlayer.create(this, R.raw.song1);
         currentSong = R.raw.song1;
 
@@ -81,7 +82,7 @@ public class Escape201Game extends Activity {
     }
 
     public void gotoActivity(View v){
-    Intent intent = new Intent(this, LevelandSettingsScreen.class);
-    startActivity(intent);
+        Intent intent = new Intent(this, LevelandSettingsScreen.class);
+        startActivity(intent);
     }
 }

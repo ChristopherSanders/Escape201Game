@@ -24,13 +24,17 @@
         </activity>
         <activity
             android:name=".LevelSelectScreen"
-            android:label="@string/title_activity_level_select_screen"
+            android:label="@string/level_select_btn"
             android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".LevelandSettingsScreen"
             android:label="@string/title_activity_leveland_settings_screen"
             android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".Level1"
+            android:label="@string/title_activity_level1" >
         </activity>
     </application>
 

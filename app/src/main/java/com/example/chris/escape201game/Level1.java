@@ -5,19 +5,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class SettingsScreen extends LevelandSettingsScreen {
+public class Level1 extends LevelSelectScreen {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings_screen);
+        setContentView(R.layout.activity_level1);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.settings_screen, menu);
+        getMenuInflater().inflate(R.menu.level1, menu);
         return true;
     }
 
