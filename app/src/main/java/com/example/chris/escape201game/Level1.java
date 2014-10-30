@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class Level1 extends LevelSelectScreen {
     private EditText codeText;
     Button keypadBtn, submitBtn, backBtn;
-    ImageButton  trashBtn, lightswitchBtn;
+    ImageButton  trashBtn, lightSwitchBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class Level1 extends LevelSelectScreen {
         keypadBtn = (Button) findViewById(R.id.keypadBtnID);
         submitBtn = (Button) findViewById(R.id.submitBtnID);
         trashBtn = (ImageButton) findViewById(R.id.trashBtnID);
-        lightswitchBtn = (ImageButton) findViewById(R.id.lightswitchBtnID);
+        lightSwitchBtn = (ImageButton) findViewById(R.id.lightSwitchBtnID);
         backBtn = (Button) findViewById(R.id.backBtnID);
     }
 
@@ -58,7 +58,7 @@ public class Level1 extends LevelSelectScreen {
 
         keypadBtn.setVisibility(View.GONE);
         trashBtn.setVisibility(View.GONE);
-        lightswitchBtn.setVisibility(View.GONE);
+        lightSwitchBtn.setVisibility(View.GONE);
     }
 
 //    public void gotoLightswitch(View v){
@@ -71,9 +71,9 @@ public class Level1 extends LevelSelectScreen {
 
         keypadBtn.setVisibility(View.GONE);
         trashBtn.setVisibility(View.GONE);
-        lightswitchBtn.setVisibility(View.GONE);
+        lightSwitchBtn.setVisibility(View.GONE);
 
-
+        backBtn.setVisibility(View.VISIBLE);
     }
 
     public void gotoMainView(View v){
@@ -82,7 +82,8 @@ public class Level1 extends LevelSelectScreen {
 
         keypadBtn.setVisibility(View.VISIBLE);
         trashBtn.setVisibility(View.VISIBLE);
-        lightswitchBtn.setVisibility(View.VISIBLE);
+        lightSwitchBtn.setVisibility(View.VISIBLE);
+        backBtn.setVisibility(View.GONE);
     }
 
     public void saveToCode(View v) {
@@ -107,7 +108,7 @@ public class Level1 extends LevelSelectScreen {
 
         keypadBtn.setVisibility(View.VISIBLE);
         trashBtn.setVisibility(View.VISIBLE);
-        lightswitchBtn.setVisibility(View.VISIBLE);
+        lightSwitchBtn.setVisibility(View.VISIBLE);
     }
 
 
