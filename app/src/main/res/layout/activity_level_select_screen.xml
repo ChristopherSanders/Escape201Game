@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:text="@string/level_1_btn"
         android:id="@+id/level1BtnID"
-        android:onClick="gotoActivity"
+        android:onClick="gotoLevel1Activity"
         android:layout_marginLeft="55dp"
         android:layout_alignTop="@+id/level2BtnID"
         android:layout_alignParentLeft="true"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:text="@string/level_2_btn"
         android:id="@+id/level2BtnID"
-        android:onClick="gotoActivity"
+        android:onClick="gotoLevel2Activity"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:text="@string/level_3_btn"
         android:id="@+id/button2"
-        android:onClick="gotoActivity"
+        android:onClick="gotoLevel3Activity"
         android:layout_marginRight="65dp"
         android:layout_alignTop="@+id/level2BtnID"
         android:layout_alignParentRight="true"

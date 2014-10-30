@@ -1,16 +1,31 @@
 package com.example.chris.escape201game;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 
 public class Level1 extends LevelSelectScreen {
+    private EditText codeText;
+    Button keypadBtn, submitBtn, backBtn;
+    ImageButton  trashBtn, lightswitchBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1);
+        codeText = (EditText) findViewById(R.id.editText);
+        keypadBtn = (Button) findViewById(R.id.keypadBtnID);
+        submitBtn = (Button) findViewById(R.id.submitBtnID);
+        trashBtn = (ImageButton) findViewById(R.id.trashBtnID);
+        lightswitchBtn = (ImageButton) findViewById(R.id.lightswitchBtnID);
+        backBtn = (Button) findViewById(R.id.backBtnID);
     }
 
 
@@ -32,4 +47,68 @@ public class Level1 extends LevelSelectScreen {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void gotoKeypad(View v){
+        //change the background
+        View mainLayout = findViewById(R.id.level1_layout);
+        mainLayout.setBackgroundResource(R.drawable.keypadondoor);
+        codeText.setVisibility(View.VISIBLE);
+        submitBtn.setVisibility(View.VISIBLE);
+        codeText.setBackgroundColor(Color.argb(79, 99, 00, 04));//red and semi-transparent
+
+        keypadBtn.setVisibility(View.GONE);
+        trashBtn.setVisibility(View.GONE);
+        lightswitchBtn.setVisibility(View.GONE);
+    }
+
+//    public void gotoLightswitch(View v){
+//
+//    }
+
+    public void gotoTrash(View v){
+        View mainLayout = findViewById(R.id.level1_layout);
+        mainLayout.setBackgroundResource(R.drawable.trashcanwithdots);
+
+        keypadBtn.setVisibility(View.GONE);
+        trashBtn.setVisibility(View.GONE);
+        lightswitchBtn.setVisibility(View.GONE);
+
+
+    }
+
+    public void gotoMainView(View v){
+        View mainLayout = findViewById(R.id.level1_layout);
+        mainLayout.setBackgroundResource(R.drawable.doorclosed);
+
+        keypadBtn.setVisibility(View.VISIBLE);
+        trashBtn.setVisibility(View.VISIBLE);
+        lightswitchBtn.setVisibility(View.VISIBLE);
+    }
+
+    public void saveToCode(View v) {
+        //change the background
+        View mainLayout = findViewById(R.id.level1_layout);
+        String str = codeText.getText().toString();
+        //if good code door open
+        if (str.equals("476")){
+            mainLayout.setBackgroundResource(R.drawable.dooropen);
+            Toast toast = Toast.makeText(getApplicationContext(),"You Win!!",Toast.LENGTH_LONG);
+            toast.show();
+        }
+        //if bad code door closed
+        else {
+            mainLayout.setBackgroundResource(R.drawable.doorclosed);
+            Toast toast = Toast.makeText(getApplicationContext(),"Passcode Incorrect!",Toast.LENGTH_SHORT);
+            toast.show();
+
+        }
+        codeText.setVisibility(View.GONE);
+        submitBtn.setVisibility(View.GONE);
+
+        keypadBtn.setVisibility(View.VISIBLE);
+        trashBtn.setVisibility(View.VISIBLE);
+        lightswitchBtn.setVisibility(View.VISIBLE);
+    }
+
+
 }

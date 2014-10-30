@@ -35,22 +35,25 @@ public class LevelSelectScreen extends LevelandSettingsScreen {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void gotoActivity(View v){
-        Intent intent = new Intent(this, LevelandSettingsScreen.class);;
-        if (v == level1Btn){
-            currentSong = R.raw.song2;
-            intent = new Intent(this, Level1.class);
-        }
-        else if (v == level2Btn){
-            currentSong = R.raw.song3;
-            intent = new Intent(this, Level1.class);
-        }
-        else if (v == level3Btn){
-            currentSong = R.raw.song4;
-            intent = new Intent(this, Level1.class);
-        }
+    public void gotoLevel1Activity(View v){
+        currentSong = R.raw.song2;
+        Intent intent = new Intent(this, Level1.class);
         onResume();
         startActivity(intent);
     }
+
+    public void gotoLevel2Activity(View v){
+        currentSong = R.raw.song3;
+        Intent intent = new Intent(this, Level1.class);
+        onResume();
+        startActivity(intent);
+    }
+
+    public void gotoLevel3Activity(View v){
+        currentSong = R.raw.song4;
+        Intent intent = new Intent(this, Level1.class);
+        onResume();
+        startActivity(intent);
+    }
+
 }
