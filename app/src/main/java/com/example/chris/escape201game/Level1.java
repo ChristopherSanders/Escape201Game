@@ -42,7 +42,7 @@ public class Level1 extends LevelSelectScreen {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            return true;
+            return false;//changed to false
         }
         return super.onOptionsItemSelected(item);
     }
