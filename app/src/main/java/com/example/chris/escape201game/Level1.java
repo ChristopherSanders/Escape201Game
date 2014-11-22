@@ -51,7 +51,7 @@ public class Level1 extends LevelSelectScreen {
         //change the background
         View mainLayout = findViewById(R.id.level1_layout);
         mainLayout.setBackgroundResource(R.drawable.keypadondoor);
-        codeText.setVisibility(View.VISIBLE);
+        codeText.setVisibility(View.INVISIBLE);//change visible to invisible
         submitBtn.setVisibility(View.VISIBLE);
         codeText.setBackgroundColor(Color.argb(79, 99, 00, 04));//red and semi-transparent
 
