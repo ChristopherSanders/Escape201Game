@@ -31,6 +31,7 @@ public class Escape201Game extends Activity {
 
         getActionBar().hide();
 // hey
+// h
         mPlayer.start();
     }
 
