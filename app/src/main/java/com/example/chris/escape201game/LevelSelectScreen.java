@@ -11,7 +11,7 @@ public class LevelSelectScreen extends LevelandSettingsScreen {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);//hello
         setContentView(R.layout.activity_level_select_screen);
     }
 
