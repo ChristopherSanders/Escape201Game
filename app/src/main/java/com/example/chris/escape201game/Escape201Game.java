@@ -49,7 +49,6 @@ public class Escape201Game extends Activity {
         if (mPlayer == null) {
             mPlayer = MediaPlayer.create(this, currentSong);
         }
-
         mPlayer.start();
     }
 
