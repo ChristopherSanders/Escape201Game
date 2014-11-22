@@ -11,7 +11,7 @@ public class LevelSelectScreen extends LevelandSettingsScreen {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);//hello
         setContentView(R.layout.activity_level_select_screen);
     }
 
@@ -44,14 +44,14 @@ public class LevelSelectScreen extends LevelandSettingsScreen {
 
     public void gotoLevel2Activity(View v){
         currentSong = R.raw.song3;
-        Intent intent = new Intent(this, Level1.class);
+        Intent intent = new Intent(this, Level2.class);
         onResume();
         startActivity(intent);
     }
 
     public void gotoLevel3Activity(View v){
         currentSong = R.raw.song4;
-        Intent intent = new Intent(this, Level1.class);
+        Intent intent = new Intent(this, Level2.class);
         onResume();
         startActivity(intent);
     }

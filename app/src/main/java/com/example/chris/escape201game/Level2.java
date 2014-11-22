@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 
-public class Level1 extends LevelSelectScreen {
+public class Level2 extends LevelSelectScreen {
     private EditText codeText;
     Button keypadBtn, submitBtn, backBtn;
     ImageButton  trashBtn, lightSwitchBtn;
