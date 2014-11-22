@@ -17,5 +17,6 @@
     <string name="music_check">Music Enabled</string>
     <string name="tips_check">Tips Enabled</string>
     <string name="title_activity_level1">Level1</string>
+    <string name="title_activity_level2">Level2</string>
 
 </resources>
