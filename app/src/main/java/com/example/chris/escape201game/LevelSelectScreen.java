@@ -51,7 +51,7 @@ public class LevelSelectScreen extends LevelandSettingsScreen {
 
     public void gotoLevel3Activity(View v){
         currentSong = R.raw.song4;
-        Intent intent = new Intent(this, Level1.class);
+        Intent intent = new Intent(this, Level2.class);
         onResume();
         startActivity(intent);
     }
