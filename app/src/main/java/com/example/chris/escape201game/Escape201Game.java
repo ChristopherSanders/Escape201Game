@@ -9,14 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-
-
-
-
-
-
-
-
 public class Escape201Game extends Activity {
 
     private MediaPlayer mPlayer;
