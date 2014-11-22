@@ -10,6 +10,13 @@ import android.view.View;
 import android.widget.Button;
 
 
+
+
+
+
+
+
+
 public class Escape201Game extends Activity {
 
     private MediaPlayer mPlayer;
@@ -31,7 +38,7 @@ public class Escape201Game extends Activity {
         currentSong = R.raw.song1;
 
         getActionBar().hide();
-
+// hi 
         mPlayer.start();
     }
 
