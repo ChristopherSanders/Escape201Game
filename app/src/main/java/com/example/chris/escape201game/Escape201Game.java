@@ -10,6 +10,13 @@ import android.view.View;
 import android.widget.Button;
 
 
+
+
+
+
+
+
+
 public class Escape201Game extends Activity {
 
     private MediaPlayer mPlayer;
@@ -31,8 +38,8 @@ public class Escape201Game extends Activity {
         currentSong = R.raw.song1;
 
         getActionBar().hide();
-        //if not music muted then do
-            mPlayer.start();
+// hi
+        mPlayer.start();
     }
 
     @Override
@@ -49,6 +56,7 @@ public class Escape201Game extends Activity {
         if (mPlayer == null) {
             mPlayer = MediaPlayer.create(this, currentSong);
         }
+
         mPlayer.start();
     }
 
