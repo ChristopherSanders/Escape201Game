@@ -30,7 +30,7 @@ public class Escape201Game extends Activity {
         currentSong = R.raw.song1;
 
         getActionBar().hide();
-// hello
+// hey
         mPlayer.start();
     }
 
