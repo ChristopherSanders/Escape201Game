@@ -31,8 +31,8 @@ public class Escape201Game extends Activity {
         currentSong = R.raw.song1;
 
         getActionBar().hide();
-
-        mPlayer.start();
+        //if not music muted then
+            mPlayer.start();
     }
 
     @Override
