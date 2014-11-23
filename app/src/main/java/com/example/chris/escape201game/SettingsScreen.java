@@ -3,9 +3,11 @@ package com.example.chris.escape201game;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
+import android.widget.CheckBox;
 
 public class SettingsScreen extends LevelandSettingsScreen {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +33,34 @@ public class SettingsScreen extends LevelandSettingsScreen {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onCheckboxClicked(View view) {
+        //Victor
+        boolean checked = ((CheckBox) view).isChecked();
+
+        //check which checkbox was clicked
+        switch(view.getId()){
+            case R.id.musicChbxID:
+                if (checked) {
+                    onResume();
+                }
+                else {
+                    onPause();
+                }
+                break;
+            case R.id.sfxChbxID:
+                if (checked)
+                    sfxOn = true;
+                else
+                    sfxOn = false;
+                break;
+            case R.id.tipsChbxID:
+                if (checked)
+                    tipsOn = true;
+                else
+                    tipsOn = false;
+                break;
+        }
     }
 }

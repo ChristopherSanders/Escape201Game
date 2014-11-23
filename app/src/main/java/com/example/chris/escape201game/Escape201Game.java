@@ -8,12 +8,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+
 
 public class Escape201Game extends Activity {
 
     private MediaPlayer mPlayer;
+    public boolean sfxOn, tipsOn;
     public int currentSong;
     Button settingsBtn, levelsBtn, playBtn, level1Btn, level2Btn, level3Btn;
+    CheckBox musicChbx, sfxChbx, tipsChbx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,9 @@ public class Escape201Game extends Activity {
         level1Btn = (Button) findViewById(R.id.level1BtnID);
         level2Btn = (Button) findViewById(R.id.level2BtnID);
         level3Btn = (Button) findViewById(R.id.level2BtnID);
+        musicChbx = (CheckBox) findViewById(R.id.musicChbxID);
+        sfxChbx = (CheckBox) findViewById(R.id.sfxChbxID);
+        tipsChbx = (CheckBox) findViewById(R.id.tipsChbxID);
         mPlayer = MediaPlayer.create(this, R.raw.song1);
         currentSong = R.raw.song1;
 
