@@ -40,6 +40,7 @@ public class SettingsScreen extends LevelandSettingsScreen {
         boolean checked = ((CheckBox) view).isChecked();
 
         //check which checkbox was clicked
+        //for setting boolean var, change var to private and use set/get methods 
         switch(view.getId()){
             case R.id.musicChbxID:
                 if (checked) {
