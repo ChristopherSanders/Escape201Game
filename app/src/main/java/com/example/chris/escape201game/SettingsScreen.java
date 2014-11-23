@@ -45,22 +45,24 @@ public class SettingsScreen extends LevelandSettingsScreen {
             case R.id.musicChbxID:
                 if (checked) {
                     onResume();
+                    setMusicOn(true);
                 }
                 else {
                     onPause();
+                    setMusicOn(false);
                 }
                 break;
             case R.id.sfxChbxID:
                 if (checked)
-                    sfxOn = true;
+                    setSfxOn(true);
                 else
-                    sfxOn = false;
+                    setSfxOn(false);
                 break;
             case R.id.tipsChbxID:
                 if (checked)
-                    tipsOn = true;
+                    setTipsOn(true);
                 else
-                    tipsOn = false;
+                    setTipsOn(false);
                 break;
         }
     }
