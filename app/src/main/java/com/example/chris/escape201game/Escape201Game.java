@@ -12,9 +12,10 @@ import android.widget.CheckBox;
 
 
 public class Escape201Game extends Activity {
+    //Victor, Dean, Chris
 
     private MediaPlayer mPlayer;
-    public boolean sfxOn, tipsOn;
+    private boolean musicOn, sfxOn, tipsOn;
     public int currentSong;
     Button settingsBtn, levelsBtn, playBtn, level1Btn, level2Btn, level3Btn;
     CheckBox musicChbx, sfxChbx, tipsChbx;
@@ -91,4 +92,31 @@ public class Escape201Game extends Activity {
         Intent intent = new Intent(this, LevelandSettingsScreen.class);
         startActivity(intent);
     }
+
+    //get & sets for music,sfx,tips
+    //victor
+    public boolean getMusicOn(){
+        return musicOn;
+    }
+
+    public void setMusicOn(boolean music){
+        musicOn = music;
+    }
+
+    public boolean getSfxOn(){
+        return sfxOn;
+    }
+
+    public void setSfxOn(boolean sfx){
+        sfxOn = sfx;
+    }
+
+    public boolean getTipsOn(){
+        return tipsOn;
+    }
+
+    public void setTipsOn(boolean tips){
+        tipsOn = tips;
+    }
+
 }
