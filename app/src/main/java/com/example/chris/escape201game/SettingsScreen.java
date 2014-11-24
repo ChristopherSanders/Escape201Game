@@ -12,6 +12,9 @@ public class SettingsScreen extends LevelandSettingsScreen {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_screen);
+
+        //victor
+        //use State to change the values of the checkboxes to match what is in the State class
         musicChbx = (CheckBox) findViewById(R.id.musicChbxID);
         sfxChbx = (CheckBox) findViewById(R.id.sfxChbxID);
         tipsChbx = (CheckBox) findViewById(R.id.tipsChbxID);
@@ -40,11 +43,11 @@ public class SettingsScreen extends LevelandSettingsScreen {
 
     public void onCheckboxClicked(View view) {
         //Victor
+        //after validating checkbox, use set methods in State.
         boolean checked = ((CheckBox) view).isChecked();
         State myState = ((State) getApplicationContext());
 
         //check which checkbox was clicked
-        //for setting boolean var, change var to private and use set/get methods 
         switch(view.getId()){
             case R.id.musicChbxID:
                 if (checked) {
