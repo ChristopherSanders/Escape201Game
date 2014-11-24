@@ -12,7 +12,6 @@ public class SettingsScreen extends Escape201Game {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_screen);
-        //keepState();
 
         //victor
         //use State to change the values of the checkboxes to match what is in the State class
@@ -58,11 +57,9 @@ public class SettingsScreen extends Escape201Game {
             case R.id.musicChbxID:
                 if (checked) {
                     myState.setMusicOn(true);
-                    onResume();
                 }
                 else {
                     myState.setMusicOn(false);
-                    onPause();
                 }
                 break;
             case R.id.sfxChbxID:
@@ -78,5 +75,6 @@ public class SettingsScreen extends Escape201Game {
                     myState.setTipsOn(false);
                 break;
         }
+        keepState();
     }
 }

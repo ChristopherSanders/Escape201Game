@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.util.Log;
 
 
 public class Escape201Game extends Activity {
@@ -23,7 +24,7 @@ public class Escape201Game extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escape201_game);
-        //State myState = ((State) getApplicationContext());
+        State myState = ((State) getApplicationContext());
 
 
 
@@ -39,7 +40,21 @@ public class Escape201Game extends Activity {
         tipsChbx = (CheckBox) findViewById(R.id.tipsChbxID);
         mPlayer = MediaPlayer.create(this, R.raw.song1);
         currentSong = R.raw.song1;
-        mPlayer.start();
+        if (myState.getSingleRun()){
+            Log.d("Escape201Game", "singleRun is true");
+        }
+        if (!myState.getSingleRun()){
+            Log.d("Escape201Game", "singleRun is false");
+        }
+        if (myState.getSingleRun()) {
+            Log.d("Escape201Game", "entering if statement (should only happen once)");
+            mPlayer.start();
+            myState.setSingleRun(false);
+            Log.d("Escape201Game", "set myState.singleRun to false");
+        } else {
+            Log.d("Escape201Game", "common if statement");
+            keepState();
+        }
         getActionBar().hide();
 
     }
@@ -52,8 +67,15 @@ public class Escape201Game extends Activity {
         //get from appplicationcontext
         State myState = ((State) getApplicationContext());
 
-        if (myState.getMusicOn()) onResume();
-        else onPause();
+        if (myState.getMusicOn()){
+            Log.d("Escape201Game", "musicOn is true, resuming music");
+            mPlayer.start();
+        } else {
+            Log.d("Escape201Game", "musicOn is FALSE, pausing music");
+            if (mPlayer.isPlaying()) {
+                mPlayer.pause();
+            }
+        }
         //add sfx and tips later
     }
 
@@ -73,6 +95,7 @@ public class Escape201Game extends Activity {
         }
 
         mPlayer.start();
+        keepState();
     }
 
     @Override

@@ -19,7 +19,6 @@ public class Level1 extends Escape201Game {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1);
-        //keepState();
 
         codeText = (EditText) findViewById(R.id.editText);
         keypadBtn = (Button) findViewById(R.id.keypadBtnID);

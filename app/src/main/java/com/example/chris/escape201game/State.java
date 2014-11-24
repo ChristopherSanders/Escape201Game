@@ -12,12 +12,13 @@ import android.app.Application;
  * used for configuring music, sfx, and tips
  */
 public class State extends Application {
-    private boolean musicOn, sfxOn, tipsOn;
+    private boolean musicOn, sfxOn, tipsOn, singleRun;
 
     public State(){
         musicOn = true;
         sfxOn = true;
         tipsOn = false;
+        singleRun = true;
     }
 
     public boolean getMusicOn(){
@@ -44,4 +45,7 @@ public class State extends Application {
         tipsOn = tips;
     }
 
+    public boolean getSingleRun(){ return singleRun;}
+
+    public void setSingleRun(boolean oneRun){ singleRun = oneRun;}
 }
