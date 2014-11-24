@@ -6,12 +6,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 
-public class SettingsScreen extends LevelandSettingsScreen {
+public class SettingsScreen extends Escape201Game {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_screen);
+        //keepState();
 
         //victor
         //use State to change the values of the checkboxes to match what is in the State class

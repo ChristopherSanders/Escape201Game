@@ -7,12 +7,13 @@ import android.view.MenuItem;
 import android.view.View;
 
 
-public class LevelSelectScreen extends LevelandSettingsScreen {
+public class LevelSelectScreen extends Escape201Game {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);//hello
         setContentView(R.layout.activity_level_select_screen);
+        //keepState();
     }
 
 
