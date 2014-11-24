@@ -12,6 +12,7 @@ public class LevelandSettingsScreen extends Escape201Game {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_leveland_settings_screen);
     }
 

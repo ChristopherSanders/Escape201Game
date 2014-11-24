@@ -8,11 +8,14 @@ import android.widget.CheckBox;
 
 public class SettingsScreen extends LevelandSettingsScreen {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_screen);
+        musicChbx = (CheckBox) findViewById(R.id.musicChbxID);
+        sfxChbx = (CheckBox) findViewById(R.id.sfxChbxID);
+        tipsChbx = (CheckBox) findViewById(R.id.tipsChbxID);
+
     }
 
 
@@ -38,31 +41,32 @@ public class SettingsScreen extends LevelandSettingsScreen {
     public void onCheckboxClicked(View view) {
         //Victor
         boolean checked = ((CheckBox) view).isChecked();
+        State myState = ((State) getApplicationContext());
 
         //check which checkbox was clicked
         //for setting boolean var, change var to private and use set/get methods 
         switch(view.getId()){
             case R.id.musicChbxID:
                 if (checked) {
+                    myState.setMusicOn(true);
                     onResume();
-                    setMusicOn(true);
                 }
                 else {
+                    myState.setMusicOn(false);
                     onPause();
-                    setMusicOn(false);
                 }
                 break;
             case R.id.sfxChbxID:
                 if (checked)
-                    setSfxOn(true);
+                    myState.setSfxOn(true);
                 else
-                    setSfxOn(false);
+                    myState.setSfxOn(false);
                 break;
             case R.id.tipsChbxID:
                 if (checked)
-                    setTipsOn(true);
+                    myState.setTipsOn(true);
                 else
-                    setTipsOn(false);
+                    myState.setTipsOn(false);
                 break;
         }
     }
