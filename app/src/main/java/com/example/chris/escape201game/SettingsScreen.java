@@ -19,6 +19,11 @@ public class SettingsScreen extends LevelandSettingsScreen {
         sfxChbx = (CheckBox) findViewById(R.id.sfxChbxID);
         tipsChbx = (CheckBox) findViewById(R.id.tipsChbxID);
 
+        State myState = ((State) getApplicationContext());
+        musicChbx.setChecked(myState.getMusicOn());
+        sfxChbx.setChecked(myState.getSfxOn());
+        tipsChbx.setChecked(myState.getTipsOn());
+
     }
 
 
