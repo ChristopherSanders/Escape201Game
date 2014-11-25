@@ -1,6 +1,5 @@
 package com.example.chris.escape201game;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,17 +22,17 @@ public class Level2 extends Escape201Game {
         setContentView(R.layout.activity_level2);
         
         //buttons, codetext
-        l2_codeText = (EditText) findViewById(R.id.l2_codeTextId);
-        l2_keypadBtn = (Button) findViewById(R.id.l2_keypadBtnId);
-        l2_projBtn = (Button) findViewById(R.id.l2_projBtnId);
-        l2_doorBtn = (Button) findViewById(R.id.l2_doorBtnId);
-        l2_trashCanBtn = (Button) findViewById(R.id.l2_trashCanBtnId);
-        l2_clockBtn = (Button) findViewById(R.id.l2_clockBtnId);
-        l2_selectClockBtn = (Button) findViewById(R.id.l2_selectClockBtnId);
-        l2_whiteBoardBtn = (Button) findViewById(R.id.l2_whiteBoardBtnId);
-        l2_clockHandBtn = (Button) findViewById(R.id.l2_clockHandId);
-        l2_lightSwitchBtn = (Button) findViewById(R.id.l2_lightSwitchBtnId);
-        l2_inventory_clockHand = (Button) findViewById(R.id.l2_inventory_clockHandId);
+//        l2_codeText = (EditText) findViewById(R.id.l2_codeTextId);
+//        l2_keypadBtn = (Button) findViewById(R.id.l2_keypadBtnId);
+//        l2_projBtn = (Button) findViewById(R.id.l2_projBtnId);
+//        l2_doorBtn = (Button) findViewById(R.id.l2_doorBtnId);
+//        l2_trashCanBtn = (Button) findViewById(R.id.l2_trashCanBtnId);
+//        l2_clockBtn = (Button) findViewById(R.id.l2_clockBtnId);
+//        l2_selectClockBtn = (Button) findViewById(R.id.l2_selectClockBtnId);
+//        l2_whiteBoardBtn = (Button) findViewById(R.id.l2_whiteBoardBtnId);
+//        l2_clockHandBtn = (Button) findViewById(R.id.l2_clockHandId);
+//        l2_lightSwitchBtn = (Button) findViewById(R.id.l2_lightSwitchBtnId);
+//        l2_inventory_clockHand = (Button) findViewById(R.id.l2_inventory_clockHandId);
     }
 
 
