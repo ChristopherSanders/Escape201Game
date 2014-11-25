@@ -60,13 +60,13 @@ public class Level2 extends Escape201Game {
         //change the background
         View mainLayout = findViewById(R.id.level1_layout);
         mainLayout.setBackgroundResource(R.drawable.keypadondoor);
-        codeText.setVisibility(View.VISIBLE);
-        submitBtn.setVisibility(View.VISIBLE);
-        codeText.setBackgroundColor(Color.argb(79, 99, 00, 04));//red and semi-transparent
-
-        keypadBtn.setVisibility(View.GONE);
-        trashBtn.setVisibility(View.GONE);
-        lightSwitchBtn.setVisibility(View.GONE);
+        l2_codeText.setVisibility(View.VISIBLE);
+//        submitBtn.setVisibility(View.VISIBLE);
+//        codeText.setBackgroundColor(Color.argb(79, 99, 00, 04));//red and semi-transparent
+//
+//        keypadBtn.setVisibility(View.GONE);
+//        trashBtn.setVisibility(View.GONE);
+//        lightSwitchBtn.setVisibility(View.GONE);
     }
 
 //    public void gotoLightSwitch(View v){
@@ -77,30 +77,30 @@ public class Level2 extends Escape201Game {
         View mainLayout = findViewById(R.id.level1_layout);
         mainLayout.setBackgroundResource(R.drawable.trashcanwithdots);
 
-        keypadBtn.setVisibility(View.GONE);
-        trashBtn.setVisibility(View.GONE);
-        lightSwitchBtn.setVisibility(View.GONE);
-
-        Toast toast = Toast.makeText(getApplicationContext(),"You see the numbers 476 in the trash!",Toast.LENGTH_LONG);
-        toast.show();
-
-        backBtn.setVisibility(View.VISIBLE);
+//        keypadBtn.setVisibility(View.GONE);
+//        trashBtn.setVisibility(View.GONE);
+//        lightSwitchBtn.setVisibility(View.GONE);
+//
+//        Toast toast = Toast.makeText(getApplicationContext(),"You see the numbers 476 in the trash!",Toast.LENGTH_LONG);
+//        toast.show();
+//
+//        backBtn.setVisibility(View.VISIBLE);
     }
 
     public void gotoMainView(View v){
         View mainLayout = findViewById(R.id.level1_layout);
         mainLayout.setBackgroundResource(R.drawable.doorclosed);
 
-        keypadBtn.setVisibility(View.VISIBLE);
-        trashBtn.setVisibility(View.VISIBLE);
-        lightSwitchBtn.setVisibility(View.VISIBLE);
-        backBtn.setVisibility(View.GONE);
+//        keypadBtn.setVisibility(View.VISIBLE);
+//        trashBtn.setVisibility(View.VISIBLE);
+//        lightSwitchBtn.setVisibility(View.VISIBLE);
+//        backBtn.setVisibility(View.GONE);
     }
 
     public void saveToCode(View v) {
         //change the background
         View mainLayout = findViewById(R.id.level1_layout);
-        String str = codeText.getText().toString();
+        String str = l2_codeText.getText().toString();
         //if good code door open
         if (str.equals("476")){
             mainLayout.setBackgroundResource(R.drawable.dooropen);
@@ -114,12 +114,12 @@ public class Level2 extends Escape201Game {
             toast.show();
 
         }
-        codeText.setVisibility(View.GONE);
-        submitBtn.setVisibility(View.GONE);
-
-        keypadBtn.setVisibility(View.VISIBLE);
-        trashBtn.setVisibility(View.VISIBLE);
-        lightSwitchBtn.setVisibility(View.VISIBLE);
+        l2_codeText.setVisibility(View.GONE);
+//        submitBtn.setVisibility(View.GONE);
+//
+//        keypadBtn.setVisibility(View.VISIBLE);
+//        trashBtn.setVisibility(View.VISIBLE);
+//        lightSwitchBtn.setVisibility(View.VISIBLE);
     }
 
 
