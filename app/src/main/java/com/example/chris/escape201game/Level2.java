@@ -8,13 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
-
 public class Level2 extends Escape201Game {
     private EditText l2_codeText;
-    private boolean l2_lightSwitch1, l2_lightSwitch2, l2_projScreenDown, l2_clockHandHave, l2_clockHandSelected;
-    Button l2_keypadBtn, l2_projBtn, l2_doorBtn, l2_trashCanBtn, l2_clockBtn, l2_selectClockBtn, l2_whiteBoardBtn, l2_clockHandBtn, l2_lightSwitchBtn;
-    ImageButton  l2_inventory_clockHand;
+    private boolean clockHand_2 = false;
+    Button door_2, clock_2, keypad_2, whiteBoard_2, trash_2, projectorBtn;
+    ImageButton  clockHandInv_2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +52,8 @@ public class Level2 extends Escape201Game {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    public void gotoKeypad(View v){
+    // Deans edit
+    public void goToKeypad_2(View v){
         //change the background
         View mainLayout = findViewById(R.id.level1_layout);
         mainLayout.setBackgroundResource(R.drawable.keypadondoor);
@@ -72,7 +70,54 @@ public class Level2 extends Escape201Game {
 //
 //    }
 
-    public void gotoTrash(View v){
+
+    public void goToClock_2(View v){
+        View mainLayout = findViewById(R.id.level2_Layout);
+        mainLayout.setBackgroundResource(R.drawable.clockl2);
+
+        backBtn.setVisibility(View.VISIBLE);
+
+    }
+
+    public void goToDoor_2(View v){
+        //change the background
+        View mainLayout = findViewById(R.id.level1_layout);
+        mainLayout.setBackgroundResource(R.drawable.keypadondoor);
+        l2_codeText.setVisibility(View.VISIBLE);
+//        submitBtn.setVisibility(View.VISIBLE);
+//        codeText.setBackgroundColor(Color.argb(79, 99, 00, 04));//red and semi-transparent
+//
+//        keypadBtn.setVisibility(View.GONE);
+//        trashBtn.setVisibility(View.GONE);
+//        lightSwitchBtn.setVisibility(View.GONE);
+    }
+
+//    public void gotoLightSwitch(View v){
+//
+//    }
+
+    public void goToWhiteBoard_2(View v){
+    //change the background
+    View mainLayout = findViewById(R.id.level1_layout);
+    mainLayout.setBackgroundResource(R.drawable.keypadondoor);
+    l2_codeText.setVisibility(View.VISIBLE);
+//        submitBtn.setVisibility(View.VISIBLE);
+//        codeText.setBackgroundColor(Color.argb(79, 99, 00, 04));//red and semi-transparent
+//
+//        keypadBtn.setVisibility(View.GONE);
+//        trashBtn.setVisibility(View.GONE);
+//        lightSwitchBtn.setVisibility(View.GONE);
+}
+
+//    public void gotoLightSwitch(View v){
+//
+//    }
+
+// end of deans code
+
+
+
+    public void goToTrash_2(View v){
         View mainLayout = findViewById(R.id.level1_layout);
         mainLayout.setBackgroundResource(R.drawable.trashcanwithdots);
 
@@ -85,6 +130,8 @@ public class Level2 extends Escape201Game {
 //
 //        backBtn.setVisibility(View.VISIBLE);
     }
+
+
 
     public void gotoMainView(View v){
         View mainLayout = findViewById(R.id.level1_layout);
