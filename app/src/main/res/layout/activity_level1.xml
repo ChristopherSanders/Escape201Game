@@ -12,14 +12,6 @@
     android:clickable="true">
 
     <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/lightSwitchBtnID"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="130dp"
-        android:background="#00000000" />
-
-    <ImageButton
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:id="@+id/trashBtnID"
