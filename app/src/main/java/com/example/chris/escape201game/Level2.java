@@ -11,13 +11,15 @@ import android.widget.Toast;
 public class Level2 extends Escape201Game {
     private EditText l2_codeText;
     private boolean l2_clockHand_selected;
-    Button l2_keypadBtn, l2_projBtn, l2_doorBtn, l2_trashCanBtn, l2_clockBtn, l2_selectClockBtn, l2_whiteBoardBtn, l2_clockHandBtn, l2_lightSwitchBtn, l2_inventory_clockHandBtn, l2_backBtn;
-    ImageButton  clockHandInv_2;
+    Button l2_keypadBtn, l2_projBtn, l2_doorBtn, l2_trashCanBtn, l2_clockBtn, l2_selectClockBtn, l2_whiteBoardBtn, l2_clockHandBtn, l2_lightSwitchBtn, l2_backBtn;
+    ImageButton  l2_inventory_clockHandBtn;
+    View mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2);
+        View mainLayout = findViewById(R.id.level2_layout);
         
         //buttons, codetext
         l2_codeText = (EditText) findViewById(R.id.l2_codeTextId);
@@ -30,7 +32,7 @@ public class Level2 extends Escape201Game {
         l2_whiteBoardBtn = (Button) findViewById(R.id.l2_whiteBoardBtnId);
         l2_clockHandBtn = (Button) findViewById(R.id.l2_clockHandId);
         l2_lightSwitchBtn = (Button) findViewById(R.id.l2_lightSwitchBtnId);
-        l2_inventory_clockHandBtn = (Button) findViewById(R.id.l2_inventory_clockHandId);
+        l2_inventory_clockHandBtn = (ImageButton) findViewById(R.id.l2_inventory_clockHandId);
     }
 
 
@@ -53,9 +55,9 @@ public class Level2 extends Escape201Game {
         return super.onOptionsItemSelected(item);
     }
     // Deans edit
-    public void goToKeypad_2(View v){
+    public void l2_goToKeypad(View v){
         //change the background
-        View mainLayout = findViewById(R.id.level1_layout);
+        View mainLayout = findViewById(R.id.level2_layout);
         mainLayout.setBackgroundResource(R.drawable.keypadondoor);
         l2_codeText.setVisibility(View.VISIBLE);
 //        submitBtn.setVisibility(View.VISIBLE);
@@ -72,7 +74,7 @@ public class Level2 extends Escape201Game {
 
 
     public void goToClock_2(View v){
-        View mainLayout = findViewById(R.id.level2_Layout);
+        View mainLayout = findViewById(R.id.level2_layout);
         mainLayout.setBackgroundResource(R.drawable.clockl2);
 
         backBtn.setVisibility(View.VISIBLE);
