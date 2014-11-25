@@ -9,13 +9,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.util.Log;
 
 
 public class Escape201Game extends Activity {
     //Victor, Dean, Chris
 
     private MediaPlayer mPlayer;
-    private boolean musicOn, sfxOn, tipsOn;
     public int currentSong;
     Button settingsBtn, levelsBtn, playBtn, level1Btn, level2Btn, level3Btn;
     CheckBox musicChbx, sfxChbx, tipsChbx;
@@ -24,7 +24,11 @@ public class Escape201Game extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escape201_game);
+        State myState = ((State) getApplicationContext());
 
+
+
+        //buttons
         settingsBtn = (Button) findViewById(R.id.settingsBtnID);
         levelsBtn = (Button) findViewById(R.id.levelsBtnID);
         playBtn = (Button) findViewById(R.id.playBtnID);
@@ -36,10 +40,43 @@ public class Escape201Game extends Activity {
         tipsChbx = (CheckBox) findViewById(R.id.tipsChbxID);
         mPlayer = MediaPlayer.create(this, R.raw.song1);
         currentSong = R.raw.song1;
-
+        if (myState.getSingleRun()){
+            Log.d("Escape201Game", "singleRun is true");
+        }
+        if (!myState.getSingleRun()){
+            Log.d("Escape201Game", "singleRun is false");
+        }
+        if (myState.getSingleRun()) {
+            Log.d("Escape201Game", "entering if statement (should only happen once)");
+            mPlayer.start();
+            myState.setSingleRun(false);
+            Log.d("Escape201Game", "set myState.singleRun to false");
+        } else {
+            Log.d("Escape201Game", "common if statement");
+            keepState();
+        }
         getActionBar().hide();
 
-        mPlayer.start();
+    }
+
+    public void keepState(){
+        //victor
+        //keepState() is an attempt at having one function control the music,sfx, and tip states
+        //each activity calls keepState in its create after calling super.onCreate
+
+        //get from appplicationcontext
+        State myState = ((State) getApplicationContext());
+
+        if (myState.getMusicOn()){
+            Log.d("Escape201Game", "musicOn is true, resuming music");
+            mPlayer.start();
+        } else {
+            Log.d("Escape201Game", "musicOn is FALSE, pausing music");
+            if (mPlayer.isPlaying()) {
+                mPlayer.pause();
+            }
+        }
+        //add sfx and tips later
     }
 
     @Override
@@ -58,6 +95,7 @@ public class Escape201Game extends Activity {
         }
 
         mPlayer.start();
+        keepState();
     }
 
     @Override
@@ -95,28 +133,30 @@ public class Escape201Game extends Activity {
 
     //get & sets for music,sfx,tips
     //victor
-    public boolean getMusicOn(){
-        return musicOn;
-    }
-
-    public void setMusicOn(boolean music){
-        musicOn = music;
-    }
-
-    public boolean getSfxOn(){
-        return sfxOn;
-    }
-
-    public void setSfxOn(boolean sfx){
-        sfxOn = sfx;
-    }
-
-    public boolean getTipsOn(){
-        return tipsOn;
-    }
-
-    public void setTipsOn(boolean tips){
-        tipsOn = tips;
-    }
+//    public boolean getMusicOn(){
+//        return musicOn;
+//    }
+//
+//    public void setMusicOn(boolean music){
+//        musicOn = music;
+//        if (musicOn) onResume();
+//        else onPause();
+//    }
+//
+//    public boolean getSfxOn(){
+//        return sfxOn;
+//    }
+//
+//    public void setSfxOn(boolean sfx){
+//        sfxOn = sfx;
+//    }
+//
+//    public boolean getTipsOn(){
+//        return tipsOn;
+//    }
+//
+//    public void setTipsOn(boolean tips){
+//        tipsOn = tips;
+//    }
 
 }

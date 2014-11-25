@@ -6,13 +6,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 
-public class SettingsScreen extends LevelandSettingsScreen {
-
+public class SettingsScreen extends Escape201Game {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_screen);
+
+        //victor
+        //use State to change the values of the checkboxes to match what is in the State class
+        musicChbx = (CheckBox) findViewById(R.id.musicChbxID);
+        sfxChbx = (CheckBox) findViewById(R.id.sfxChbxID);
+        tipsChbx = (CheckBox) findViewById(R.id.tipsChbxID);
+
+        State myState = ((State) getApplicationContext());
+        musicChbx.setChecked(myState.getMusicOn());
+        sfxChbx.setChecked(myState.getSfxOn());
+        tipsChbx.setChecked(myState.getTipsOn());
+
     }
 
 
@@ -37,33 +48,33 @@ public class SettingsScreen extends LevelandSettingsScreen {
 
     public void onCheckboxClicked(View view) {
         //Victor
+        //after validating checkbox, use set methods in State.
         boolean checked = ((CheckBox) view).isChecked();
+        State myState = ((State) getApplicationContext());
 
         //check which checkbox was clicked
-        //for setting boolean var, change var to private and use set/get methods 
         switch(view.getId()){
             case R.id.musicChbxID:
                 if (checked) {
-                    onResume();
-                    setMusicOn(true);
+                    myState.setMusicOn(true);
                 }
                 else {
-                    onPause();
-                    setMusicOn(false);
+                    myState.setMusicOn(false);
                 }
                 break;
             case R.id.sfxChbxID:
                 if (checked)
-                    setSfxOn(true);
+                    myState.setSfxOn(true);
                 else
-                    setSfxOn(false);
+                    myState.setSfxOn(false);
                 break;
             case R.id.tipsChbxID:
                 if (checked)
-                    setTipsOn(true);
+                    myState.setTipsOn(true);
                 else
-                    setTipsOn(false);
+                    myState.setTipsOn(false);
                 break;
         }
+        keepState();
     }
 }

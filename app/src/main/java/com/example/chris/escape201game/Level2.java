@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 
-public class Level2 extends LevelSelectScreen {
+public class Level2 extends Escape201Game {
     private EditText codeText;
     Button keypadBtn, submitBtn, backBtn;
     ImageButton  trashBtn, lightSwitchBtn;
@@ -20,6 +20,7 @@ public class Level2 extends LevelSelectScreen {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1);
+
         codeText = (EditText) findViewById(R.id.editText);
         keypadBtn = (Button) findViewById(R.id.keypadBtnID);
         submitBtn = (Button) findViewById(R.id.submitBtnID);
