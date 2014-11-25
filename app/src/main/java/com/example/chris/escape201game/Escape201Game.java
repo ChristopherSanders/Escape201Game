@@ -16,6 +16,7 @@ public class Escape201Game extends Activity {
     //Victor, Dean, Chris
 
     private MediaPlayer mPlayer;
+    private MediaPlayer sfxPlayer;
     public int currentSong;
     Button settingsBtn, levelsBtn, playBtn, level1Btn, level2Btn, level3Btn;
     CheckBox musicChbx, sfxChbx, tipsChbx;
@@ -39,6 +40,7 @@ public class Escape201Game extends Activity {
         sfxChbx = (CheckBox) findViewById(R.id.sfxChbxID);
         tipsChbx = (CheckBox) findViewById(R.id.tipsChbxID);
         mPlayer = MediaPlayer.create(this, R.raw.song1);
+        sfxPlayer = MediaPlayer.create(this, R.raw.sfx_default);
         currentSong = R.raw.song1;
         if (myState.getSingleRun()){
             Log.d("Escape201Game", "singleRun is true");
@@ -129,6 +131,14 @@ public class Escape201Game extends Activity {
     public void gotoActivity(View v){
         Intent intent = new Intent(this, LevelandSettingsScreen.class);
         startActivity(intent);
+    }
+    
+    public void playSfx(int soundEffect){
+        State myState = ((State) getApplicationContext());
+        if (myState.getSfxOn()) {
+            
+            sfxPlayer.start();
+        }
     }
 
     //get & sets for music,sfx,tips
