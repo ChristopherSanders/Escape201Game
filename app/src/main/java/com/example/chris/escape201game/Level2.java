@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class Level2 extends Escape201Game {
     private EditText l2_codeText;
-    private boolean l2_lightSwitch1, l2_lightSwitch2, l2_projScreenDown, l2_clockHand
+    private boolean l2_lightSwitch1, l2_lightSwitch2, l2_projScreenDown, l2_clockHandHave, l2_clockHandSelected;
     Button l2_keypadBtn, l2_projBtn, l2_doorBtn, l2_trashCanBtn, l2_clockBtn, , l2_selectClockBtn, l2_whiteBoardBtn, l2_clockHand, l2_lightSwitchBtn, 
     ImageButton  l2_inventory_clockHand;
 
@@ -33,7 +33,7 @@ public class Level2 extends Escape201Game {
         l2_whiteBoardBtn = (Button) findViewById(R.id.l2_whiteBoardBtnId);
         l2_clockHandBtn = (Button) findViewById(R.id.l2_clockHandId);
         l2_lightSwitchBtn = (Button) findViewById(R.id.l2_lightSwitchBtnId);
-        l2_inventory_clockHand = (Button) findViewById(R.id.l2_inventory_clockHand);
+        l2_inventory_clockHand = (Button) findViewById(R.id.l2_inventory_clockHandId);
     }
 
 
