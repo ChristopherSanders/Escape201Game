@@ -115,16 +115,17 @@ public class Level2 extends Escape201Game {
     public void goToLightSwitch_2(View v){
         setButtonsGone();
         View mainLayout = findViewById(R.id.level2_layout);
-        if ((!l2_rightSwitchUp) && (!l2_leftSwitchUp)) {
+        //Set layout to reflect switch change
+        if ((!l2_leftSwitchUp) && (!l2_rightSwitchUp)) {
             mainLayout.setBackgroundResource(R.drawable.lightswitch00);
         }
-        else if ((!l2_rightSwitchUp) && (l2_leftSwitchUp)) {
-            mainLayout.setBackgroundResource(R.drawable.lightswitch01);
-        }
-        else if ((l2_rightSwitchUp) && (!l2_leftSwitchUp)) {
+        else if ((l2_leftSwitchUp) && (!l2_rightSwitchUp)) {
             mainLayout.setBackgroundResource(R.drawable.lightswitch10);
         }
-       else if ((l2_rightSwitchUp) && (l2_leftSwitchUp)) {
+        else if ((!l2_leftSwitchUp) && (l2_rightSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch01);
+        }
+        else if ((l2_rightSwitchUp) && (l2_leftSwitchUp)) {
             mainLayout.setBackgroundResource(R.drawable.lightswitch11);
         }
         l2_lightSwitchLeftBtn.setVisibility(View.VISIBLE);
@@ -139,11 +140,11 @@ public class Level2 extends Escape201Game {
         //if broken show no hands if fixed show with hands
         if (l2_clockBroken) {
             mainLayout.setBackgroundResource(R.drawable.clocknohands);
+            l2_fixClockBtn.setVisibility(View.VISIBLE);
         }
         if (!l2_clockBroken){
             mainLayout.setBackgroundResource(R.drawable.clockwhands);
         }
-        l2_fixClockBtn.setVisibility(View.VISIBLE);
         l2_currentScreen = "clock";
     }
 
@@ -277,14 +278,14 @@ public class Level2 extends Escape201Game {
         }
 
         //Set layout to reflect switch change
-        if ((!l2_rightSwitchUp) && (!l2_leftSwitchUp)) {
+        if ((!l2_leftSwitchUp) && (!l2_rightSwitchUp)) {
             mainLayout.setBackgroundResource(R.drawable.lightswitch00);
         }
-        else if ((!l2_rightSwitchUp) && (l2_leftSwitchUp)) {
-            mainLayout.setBackgroundResource(R.drawable.lightswitch01);
-        }
-        else if ((l2_rightSwitchUp) && (!l2_leftSwitchUp)) {
+        else if ((l2_leftSwitchUp) && (!l2_rightSwitchUp)) {
             mainLayout.setBackgroundResource(R.drawable.lightswitch10);
+        }
+        else if ((!l2_leftSwitchUp) && (l2_rightSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch01);
         }
         else if ((l2_rightSwitchUp) && (l2_leftSwitchUp)) {
             mainLayout.setBackgroundResource(R.drawable.lightswitch11);
