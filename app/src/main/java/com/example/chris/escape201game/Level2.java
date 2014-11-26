@@ -12,7 +12,7 @@ public class Level2 extends Escape201Game {
     private EditText l2_codeText;
     private boolean l2_clockHand_selected, l2_screenUp;
     Button l2_keypadBtn, l2_projBtn, l2_trashCanBtn, l2_clockBtn, l2_selectClockBtn, l2_whiteBoardBtn, l2_clockHandBtn, l2_lightSwitchBtn,
-            l2_backBtn, l2_dropScreenBtn, l2_doorViewBtn;
+            l2_lightSwitchLeftBtn, l2_lightSwitchRightBtn, l2_backBtn, l2_dropScreenBtn, l2_doorViewBtn;
     ImageButton  l2_inventory_clockHandBtn;
     View mainLayout;
 
@@ -36,6 +36,8 @@ public class Level2 extends Escape201Game {
         l2_whiteBoardBtn = (Button) findViewById(R.id.l2_whiteBoardBtnId);
         l2_clockHandBtn = (Button) findViewById(R.id.l2_clockHandBtnId);
         l2_lightSwitchBtn = (Button) findViewById(R.id.l2_lightSwitchBtnId);
+        l2_lightSwitchLeftBtn = (Button) findViewById(R.id.l2_lightSwitchLeftBtnId);
+        l2_lightSwitchRightBtn = (Button) findViewById(R.id.l2_lightSwitchRightBtnId);
         l2_inventory_clockHandBtn = (ImageButton) findViewById(R.id.l2_inventory_clockHandBtnId);
         l2_backBtn = (Button) findViewById(R.id.l2_backBtnId);
         l2_dropScreenBtn = (Button) findViewById(R.id.l2_dropScreenBtnId);
@@ -83,7 +85,7 @@ public class Level2 extends Escape201Game {
         View mainLayout = findViewById(R.id.level2_layout);
         mainLayout.setBackgroundResource(R.drawable.room201keypad);
         l2_codeText.setVisibility(View.VISIBLE);
-//        submitBtn.setVisibility(View.VISIBLE);
+        submitBtn.setVisibility(View.VISIBLE);
 //        codeText.setBackgroundColor(Color.argb(79, 99, 00, 04));//red and semi-transparent
 //
 //        keypadBtn.setVisibility(View.GONE);
