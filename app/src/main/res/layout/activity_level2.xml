@@ -12,4 +12,26 @@
     android:clickable="true">
 
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:id="@+id/l2_doorViewBtnId"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="goToDoor_2"
+        android:visibility="gone" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/l2_dropScreenBtnId"
+        android:layout_marginLeft="67dp"
+        android:layout_marginTop="100dp"
+        android:layout_alignTop="@+id/l2_doorViewBtnId"
+        android:layout_alignParentLeft="true"
+        android:onClick="changeDropScreen"
+        android:visibility="gone" />
 </RelativeLayout>

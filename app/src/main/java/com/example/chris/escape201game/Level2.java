@@ -11,7 +11,8 @@ import android.widget.Toast;
 public class Level2 extends Escape201Game {
     private EditText l2_codeText;
     private boolean l2_clockHand_selected;
-    Button l2_keypadBtn, l2_projBtn, l2_doorBtn, l2_trashCanBtn, l2_clockBtn, l2_selectClockBtn, l2_whiteBoardBtn, l2_clockHandBtn, l2_lightSwitchBtn, l2_backBtn;
+    Button l2_keypadBtn, l2_projBtn, l2_doorBtn, l2_trashCanBtn, l2_clockBtn, l2_selectClockBtn, l2_whiteBoardBtn, l2_clockHandBtn, l2_lightSwitchBtn,
+            l2_backBtn, l2_dropScreenBtn, l2_doorViewBtn;
     ImageButton  l2_inventory_clockHandBtn;
     View mainLayout;
 
@@ -30,9 +31,12 @@ public class Level2 extends Escape201Game {
         l2_clockBtn = (Button) findViewById(R.id.l2_clockBtnId);
         l2_selectClockBtn = (Button) findViewById(R.id.l2_selectClockBtnId);
         l2_whiteBoardBtn = (Button) findViewById(R.id.l2_whiteBoardBtnId);
-        l2_clockHandBtn = (Button) findViewById(R.id.l2_clockHandId);
+        l2_clockHandBtn = (Button) findViewById(R.id.l2_clockHandBtnId);
         l2_lightSwitchBtn = (Button) findViewById(R.id.l2_lightSwitchBtnId);
-        l2_inventory_clockHandBtn = (ImageButton) findViewById(R.id.l2_inventory_clockHandId);
+        l2_inventory_clockHandBtn = (ImageButton) findViewById(R.id.l2_inventory_clockHandBtnId);
+        l2_backBtn = (Button) findViewById(R.id.l2_backBtnId);
+        l2_dropScreenBtn = (Button) findViewById(R.id.l2_dropScreenBtnId);
+        l2_doorViewBtn = (Button) findViewById(R.id.l2_doorViewBtnId);
     }
 
 
@@ -54,6 +58,16 @@ public class Level2 extends Escape201Game {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    //change whether drop screen is up or down
+    public void changeDropScreen(View v){
+        View mainLayout = findViewById(R.id.level2_layout);
+        //if drop screen down
+            mainLayout.setBackgroundResource(R.drawable.screenup);
+        //if drop screen up
+            mainLayout.setBackgroundResource(R.drawable.screendown);
+    }
+
     // Deans edit
     public void l2_goToKeypad(View v){
         //change the background
@@ -84,7 +98,7 @@ public class Level2 extends Escape201Game {
     public void goToDoor_2(View v){
         //change the background
         View mainLayout = findViewById(R.id.level1_layout);
-        mainLayout.setBackgroundResource(R.drawable.keypadondoor);
+        mainLayout.setBackgroundResource(R.drawable.doorviewclocknohands);
         l2_codeText.setVisibility(View.VISIBLE);
 //        submitBtn.setVisibility(View.VISIBLE);
 //        codeText.setBackgroundColor(Color.argb(79, 99, 00, 04));//red and semi-transparent
@@ -150,14 +164,13 @@ public class Level2 extends Escape201Game {
         View mainLayout = findViewById(R.id.level1_layout);
         String str = l2_codeText.getText().toString();
         //if good code door open
-        if (str.equals("476")){
-            mainLayout.setBackgroundResource(R.drawable.dooropen);
+        if (str.equals("6378")){
+            mainLayout.setBackgroundResource(R.drawable.doorviewdooropen);
             Toast toast = Toast.makeText(getApplicationContext(),"You Win!!",Toast.LENGTH_LONG);
             toast.show();
         }
         //if bad code door closed
         else {
-            mainLayout.setBackgroundResource(R.drawable.doorclosed);
             Toast toast = Toast.makeText(getApplicationContext(),"Passcode Incorrect!",Toast.LENGTH_SHORT);
             toast.show();
 
@@ -168,6 +181,25 @@ public class Level2 extends Escape201Game {
 //        keypadBtn.setVisibility(View.VISIBLE);
 //        trashBtn.setVisibility(View.VISIBLE);
 //        lightSwitchBtn.setVisibility(View.VISIBLE);
+    }
+
+    //set all buttons to gone at change of background - Chris
+    @Override
+    public void setButtonsGone(){
+        l2_codeText.setVisibility(View.GONE);
+        l2_keypadBtn.setVisibility(View.GONE);
+        l2_projBtn.setVisibility(View.GONE);
+        l2_doorBtn.setVisibility(View.GONE);
+        l2_trashCanBtn.setVisibility(View.GONE);
+        l2_clockBtn.setVisibility(View.GONE);
+        l2_selectClockBtn.setVisibility(View.GONE);
+        l2_whiteBoardBtn.setVisibility(View.GONE);
+        l2_clockHandBtn.setVisibility(View.GONE);
+        l2_lightSwitchBtn.setVisibility(View.GONE);
+        l2_inventory_clockHandBtn.setVisibility(View.GONE);
+        l2_backBtn.setVisibility(View.INVISIBLE);
+        l2_dropScreenBtn.setVisibility(View.GONE);
+        l2_doorViewBtn.setVisibility(View.GONE);
     }
 
 

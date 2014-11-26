@@ -101,7 +101,6 @@ public class Level1 extends Escape201Game {
         }
         //if bad code door closed
         else {
-            mainLayout.setBackgroundResource(R.drawable.doorclosed);
             Toast toast = Toast.makeText(getApplicationContext(),"Passcode Incorrect!",Toast.LENGTH_SHORT);
             toast.show();
 
@@ -112,6 +111,17 @@ public class Level1 extends Escape201Game {
         keypadBtn.setVisibility(View.VISIBLE);
         trashBtn.setVisibility(View.VISIBLE);
         lightSwitchBtn.setVisibility(View.VISIBLE);
+    }
+
+    //set all buttons to gone at change of background - Chris
+    @Override
+    public void setButtonsGone(){
+        codeText.setVisibility(View.GONE);
+        keypadBtn.setVisibility(View.GONE);
+        submitBtn.setVisibility(View.GONE);
+        trashBtn.setVisibility(View.GONE);
+        lightSwitchBtn.setVisibility(View.GONE);
+        backBtn.setVisibility(View.VISIBLE);
     }
 
 
