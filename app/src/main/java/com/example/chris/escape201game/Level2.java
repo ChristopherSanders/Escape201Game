@@ -7,15 +7,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
+
 public class Level2 extends Escape201Game {
     private EditText l2_codeText;
     private String l2_currentScreen;
     private boolean l2_clockHand_selected, l2_screenUp, l2_leftSwitchUp, l2_rightSwitchUp, l2_clockBroken, l2_clockHandFound;
     Button l2_keypadBtn, l2_trashCanBtn, l2_clockBtn, l2_whiteBoardBtn, l2_clockHandBtn, l2_lightSwitchBtn,
             l2_lightSwitchLeftBtn, l2_lightSwitchRightBtn, l2_backBtn, l2_dropScreenBtn, l2_doorViewBtn, l2_submitBtn, l2_fixClockBtn;
-    ImageButton  l2_inventory_clockHandBtn;
+    private TextView l2_paperText;
+//    ImageButton  l2_inventory_clockHandBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,8 @@ public class Level2 extends Escape201Game {
         l2_doorViewBtn = (Button) findViewById(R.id.l2_doorViewBtnId);
         l2_submitBtn = (Button) findViewById(R.id.l2_submitBtnId);
         l2_fixClockBtn = (Button) findViewById(R.id.l2_fixClockBtnId);
+
+        l2_paperText = (TextView) findViewById(R.id.paperTextId);
     }
 
 
@@ -162,6 +166,8 @@ public class Level2 extends Escape201Game {
         }
         setButtonsGone();
         playSfx(0);
+        updatePaperText(v);
+        l2_paperText.setVisibility(View.VISIBLE);
         l2_clockBtn.setVisibility(View.VISIBLE);
         l2_trashCanBtn.setVisibility(View.VISIBLE);
         l2_keypadBtn.setVisibility(View.VISIBLE);
@@ -289,6 +295,7 @@ public class Level2 extends Escape201Game {
         //Set layout to reflect switch change
         if ((!l2_leftSwitchUp) && (!l2_rightSwitchUp)) {
             mainLayout.setBackgroundResource(R.drawable.lightswitch00);
+
         }
         else if ((l2_leftSwitchUp) && (!l2_rightSwitchUp)) {
             mainLayout.setBackgroundResource(R.drawable.lightswitch10);
@@ -299,6 +306,7 @@ public class Level2 extends Escape201Game {
         else if ((l2_rightSwitchUp) && (l2_leftSwitchUp)) {
             mainLayout.setBackgroundResource(R.drawable.lightswitch11);
         }
+        updatePaperText(v);
         l2_currentScreen = "lightswitch";
     }
 
@@ -327,7 +335,28 @@ public class Level2 extends Escape201Game {
         else if ((l2_rightSwitchUp) && (l2_leftSwitchUp)) {
             mainLayout.setBackgroundResource(R.drawable.lightswitch11);
         }
+        updatePaperText(v);
         l2_currentScreen = "lightswitch";
+    }
+
+    public void updatePaperText(View v){
+        //Set layout to reflect switch change
+        if ((!l2_leftSwitchUp) && (!l2_rightSwitchUp)) {
+            l2_paperText.setText("Chair");
+            l2_paperText.setTextColor(Color.argb(99, 99, 00, 00));
+        }
+        else if ((l2_leftSwitchUp) && (!l2_rightSwitchUp)) {
+            l2_paperText.setText("Chair");
+            l2_paperText.setTextColor(Color.argb(99, 00, 99, 00));
+        }
+        else if ((!l2_leftSwitchUp) && (l2_rightSwitchUp)) {
+            l2_paperText.setText("Marker");
+            l2_paperText.setTextColor(Color.argb(99, 00, 00, 99));
+        }
+        else if ((l2_rightSwitchUp) && (l2_leftSwitchUp)) {
+            l2_paperText.setText("Minute");
+            l2_paperText.setTextColor(Color.argb(99, 99, 99, 00));
+        }
     }
 
     //set all buttons to gone at change of background - Chris
@@ -347,6 +376,7 @@ public class Level2 extends Escape201Game {
         l2_fixClockBtn.setVisibility(View.GONE);
         l2_lightSwitchLeftBtn.setVisibility(View.GONE);
         l2_lightSwitchRightBtn.setVisibility(View.GONE);
+        l2_paperText.setVisibility(View.GONE);
 
     }
 
