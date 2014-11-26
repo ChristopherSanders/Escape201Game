@@ -142,6 +142,7 @@ public class Escape201Game extends Activity {
         //1 .. lightswitch
         //2 .. doorclosing
         //3 .. unlock
+        //4 .. beep (type 1)
         State myState = ((State) getApplicationContext());
         sfxPlayer.reset();
         sfxPlayer = MediaPlayer.create(this, R.raw.sfx_default);
@@ -162,6 +163,11 @@ public class Escape201Game extends Activity {
                     if (!sfxPlayer.isPlaying()){
                         sfxPlayer.reset();
                         sfxPlayer = MediaPlayer.create(this, R.raw.sfx_doorunlock);
+                    }
+                } else if (soundEffect == 4){
+                    if (!sfxPlayer.isPlaying()){
+                        sfxPlayer.reset();
+                        sfxPlayer = MediaPlayer.create(this, R.raw.sfx_beep1);
                     }
                 }
             }

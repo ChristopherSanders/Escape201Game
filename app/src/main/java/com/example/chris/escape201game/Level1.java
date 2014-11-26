@@ -25,6 +25,9 @@ public class Level1 extends Escape201Game {
         submitBtn = (Button) findViewById(R.id.submitBtnID);
         trashBtn = (ImageButton) findViewById(R.id.trashBtnID);
         backBtn = (Button) findViewById(R.id.backBtnID);
+//        lightSwitchBtn = (ImageButton) findViewById(R.id.l2_lightSwitchBtnId);
+
+        playSfx(2);
     }
 
 
@@ -57,7 +60,7 @@ public class Level1 extends Escape201Game {
 
         keypadBtn.setVisibility(View.GONE);
         trashBtn.setVisibility(View.GONE);
-        lightSwitchBtn.setVisibility(View.GONE);
+        //lightSwitchBtn.setVisibility(View.GONE);
     }
 
 //    public void gotoLightSwitch(View v){
@@ -70,7 +73,7 @@ public class Level1 extends Escape201Game {
 
         keypadBtn.setVisibility(View.GONE);
         trashBtn.setVisibility(View.GONE);
-        lightSwitchBtn.setVisibility(View.GONE);
+        //lightSwitchBtn.setVisibility(View.GONE);
 
         Toast toast = Toast.makeText(getApplicationContext(),"You see the numbers 476 in the trash!",Toast.LENGTH_LONG);
         toast.show();
@@ -84,7 +87,7 @@ public class Level1 extends Escape201Game {
 
         keypadBtn.setVisibility(View.VISIBLE);
         trashBtn.setVisibility(View.VISIBLE);
-        lightSwitchBtn.setVisibility(View.VISIBLE);
+        //lightSwitchBtn.setVisibility(View.VISIBLE);
         backBtn.setVisibility(View.GONE);
     }
 
@@ -95,6 +98,7 @@ public class Level1 extends Escape201Game {
         //if good code door open
         if (str.equals("476")){
             mainLayout.setBackgroundResource(R.drawable.dooropen);
+            playSfx(3);
             Toast toast = Toast.makeText(getApplicationContext(),"You Win!!",Toast.LENGTH_LONG);
             toast.show();
         }
@@ -109,7 +113,7 @@ public class Level1 extends Escape201Game {
 
         keypadBtn.setVisibility(View.VISIBLE);
         trashBtn.setVisibility(View.VISIBLE);
-        lightSwitchBtn.setVisibility(View.VISIBLE);
+        //lightSwitchBtn.setVisibility(View.VISIBLE);
     }
 
     //set all buttons to gone at change of background - Chris
@@ -119,7 +123,7 @@ public class Level1 extends Escape201Game {
         keypadBtn.setVisibility(View.GONE);
         submitBtn.setVisibility(View.GONE);
         trashBtn.setVisibility(View.GONE);
-        lightSwitchBtn.setVisibility(View.GONE);
+        //lightSwitchBtn.setVisibility(View.GONE);
         backBtn.setVisibility(View.VISIBLE);
     }
 

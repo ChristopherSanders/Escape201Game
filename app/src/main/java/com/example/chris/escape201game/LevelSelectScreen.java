@@ -36,7 +36,7 @@ public class LevelSelectScreen extends Escape201Game {
     }
 
     public void gotoLevel1Activity(View v){
-        playSfx(1);
+        playSfx(0);
         currentSong = R.raw.song2;
         Intent intent = new Intent(this, Level1.class);
         onResume();
@@ -44,7 +44,7 @@ public class LevelSelectScreen extends Escape201Game {
     }
 
     public void gotoLevel2Activity(View v){
-        playSfx(1);
+        playSfx(0);
         currentSong = R.raw.song3;
         Intent intent = new Intent(this, Level2.class);
         onResume();
@@ -52,7 +52,7 @@ public class LevelSelectScreen extends Escape201Game {
     }
 
     public void gotoLevel3Activity(View v){
-        playSfx(1);
+        playSfx(0);
         currentSong = R.raw.song4;
         Intent intent = new Intent(this, Level2.class);
         onResume();
