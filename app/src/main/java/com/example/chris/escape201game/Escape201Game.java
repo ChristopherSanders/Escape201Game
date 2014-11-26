@@ -4,13 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.util.Log;
 
 
 public class Escape201Game extends Activity {
@@ -200,6 +199,10 @@ public class Escape201Game extends Activity {
 
     public void setButtonsGone(){
         //for each level override with the buttons that correspond
+    }
+
+    public void enableTipsMode(){
+        //for each level set buttons to opaque if applicable
     }
 
     //get & sets for music,sfx,tips

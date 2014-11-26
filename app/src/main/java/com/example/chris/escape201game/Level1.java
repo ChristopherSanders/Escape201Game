@@ -1,7 +1,6 @@
 package com.example.chris.escape201game;
 
 import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,23 +12,34 @@ import android.widget.Toast;
 
 public class Level1 extends Escape201Game {
     private EditText codeText;
+    private boolean doorClosed;
     Button keypadBtn, submitBtn, backBtn;
-    ImageButton  trashBtn, lightSwitchBtn;
+    ImageButton  trashBtn;
+    private String l1_currentScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1);
+        View mainLayout = findViewById(R.id.level1_layout);
+
+        //Set current screen
+        GameState myState = ((GameState) getApplicationContext());
+        mainLayout.setBackgroundResource(R.drawable.doorclosed);
+        l1_currentScreen = "main"; //will be used if level difficulty increases
+        doorClosed = true;
 
         codeText = (EditText) findViewById(R.id.editText);
         keypadBtn = (Button) findViewById(R.id.keypadBtnID);
         submitBtn = (Button) findViewById(R.id.submitBtnID);
         trashBtn = (ImageButton) findViewById(R.id.trashBtnID);
         backBtn = (Button) findViewById(R.id.backBtnID);
-//        lightSwitchBtn = (ImageButton) findViewById(R.id.l2_lightSwitchBtnId);
         setMPlayerSong(1);
         keepState();
         playSfx(2);
+        if (myState.getTipsOn()){
+            enableTipsMode();
+        }
     }
 
 
@@ -56,64 +66,72 @@ public class Level1 extends Escape201Game {
         //change the background
         View mainLayout = findViewById(R.id.level1_layout);
         mainLayout.setBackgroundResource(R.drawable.keypadondoor);
+        setButtonsGone();
         codeText.setVisibility(View.VISIBLE);
         submitBtn.setVisibility(View.VISIBLE);
         codeText.setBackgroundColor(Color.argb(79, 99, 00, 04));//red and semi-transparent
 
-        keypadBtn.setVisibility(View.GONE);
-        trashBtn.setVisibility(View.GONE);
-        //lightSwitchBtn.setVisibility(View.GONE);
+        l1_currentScreen = "keypad";
     }
 
     public void goToTrash(View v){
         View mainLayout = findViewById(R.id.level1_layout);
         mainLayout.setBackgroundResource(R.drawable.trashcanwithdots);
-
-        keypadBtn.setVisibility(View.GONE);
-        trashBtn.setVisibility(View.GONE);
-        //lightSwitchBtn.setVisibility(View.GONE);
-
+        setButtonsGone();
         Toast toast = Toast.makeText(getApplicationContext(),"You see the numbers 476 in the trash!",Toast.LENGTH_LONG);
         playSfx(0);
         toast.show();
 
-        backBtn.setVisibility(View.VISIBLE);
+        l1_currentScreen = "trash";
     }
 
     public void goToPreviousView(View v){
-        View mainLayout = findViewById(R.id.level1_layout);
-        mainLayout.setBackgroundResource(R.drawable.doorclosed);
-
-        keypadBtn.setVisibility(View.VISIBLE);
-        trashBtn.setVisibility(View.VISIBLE);
-        //lightSwitchBtn.setVisibility(View.VISIBLE);
-        backBtn.setVisibility(View.GONE);
+        setButtonsGone();
+        if ((l1_currentScreen.equals("main"))) {
+            goToMainView(v);
+        }
+        if ((l1_currentScreen.equals("keypad")) || (l1_currentScreen.equals("trash")) ) {
+            goToMainView(v);//this will be changed! - Chris
+        }
     }
 
     public void saveToCode(View v) {
         //change the background
-        View mainLayout = findViewById(R.id.level1_layout);
         String str = codeText.getText().toString();
+        setButtonsGone();
         //if good code door open
         if (str.equals("476")){
-            mainLayout.setBackgroundResource(R.drawable.dooropen);
             playSfx(3);
             keepState();
+            doorClosed = false;
+            goToMainView(v);
             Toast toast = Toast.makeText(getApplicationContext(),"You Win!!",Toast.LENGTH_LONG);
             toast.show();
+
         }
         //if bad code door closed
         else {
+            doorClosed = true;
             Toast toast = Toast.makeText(getApplicationContext(),"Passcode Incorrect!",Toast.LENGTH_SHORT);
             toast.show();
-
+            codeText.setText("");
+            goToKeypad(v);
         }
-        codeText.setVisibility(View.GONE);
-        submitBtn.setVisibility(View.GONE);
+    }
 
-        keypadBtn.setVisibility(View.VISIBLE);
-        trashBtn.setVisibility(View.VISIBLE);
-        //lightSwitchBtn.setVisibility(View.VISIBLE);
+    //Go to the main view
+    public void goToMainView(View v){
+        setButtonsGone();
+        View mainLayout = findViewById(R.id.level1_layout);
+        if (doorClosed) {
+            mainLayout.setBackgroundResource(R.drawable.doorclosed);
+            trashBtn.setVisibility(View.VISIBLE);
+            keypadBtn.setVisibility(View.VISIBLE);
+        }
+        if (!doorClosed){
+            mainLayout.setBackgroundResource(R.drawable.dooropen);
+        }
+        l1_currentScreen = "main";
     }
 
     //set all buttons to gone at change of background - Chris
@@ -123,7 +141,13 @@ public class Level1 extends Escape201Game {
         keypadBtn.setVisibility(View.GONE);
         submitBtn.setVisibility(View.GONE);
         trashBtn.setVisibility(View.GONE);
-        //lightSwitchBtn.setVisibility(View.GONE);
+        backBtn.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void enableTipsMode(){
+        keypadBtn.setBackgroundColor(Color.argb(75, 00, 00, 00));
+        trashBtn.setBackgroundColor(Color.argb(75, 00, 00, 00));
         backBtn.setVisibility(View.VISIBLE);
     }
 
