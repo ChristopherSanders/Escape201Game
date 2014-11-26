@@ -37,6 +37,12 @@ public class Level2 extends Escape201Game {
         //set current screen
         l2_currentScreen = "main";
 
+        //set music
+        setMPlayerSong(2);
+
+        //door closing
+        playSfx(2);
+
         //buttons, codetext
         l2_codeText = (EditText) findViewById(R.id.l2_codeTextId);
         l2_keypadBtn = (Button) findViewById(R.id.l2_keypadBtnId);
@@ -78,6 +84,7 @@ public class Level2 extends Escape201Game {
     //change whether drop screen is up or down - Chris
     public void changeDropScreen(View v){
         setButtonsGone();
+        playSfx(4);
         View mainLayout = findViewById(R.id.level2_layout);
         if (!l2_screenUp) {//drop screen down
             mainLayout.setBackgroundResource(R.drawable.screenup);
@@ -244,6 +251,7 @@ public class Level2 extends Escape201Game {
         String str = l2_codeText.getText().toString();
         //if good code door open
         if (str.equals("6378")){
+            playSfx(3);
             setButtonsGone();
             mainLayout.setBackgroundResource(R.drawable.doorviewdooropen);
             l2_currentScreen = "complete";

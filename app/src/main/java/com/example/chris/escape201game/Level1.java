@@ -1,6 +1,7 @@
 package com.example.chris.escape201game;
 
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,7 +27,8 @@ public class Level1 extends Escape201Game {
         trashBtn = (ImageButton) findViewById(R.id.trashBtnID);
         backBtn = (Button) findViewById(R.id.backBtnID);
 //        lightSwitchBtn = (ImageButton) findViewById(R.id.l2_lightSwitchBtnId);
-
+        setMPlayerSong(1);
+        keepState();
         playSfx(2);
     }
 
@@ -95,6 +97,7 @@ public class Level1 extends Escape201Game {
         if (str.equals("476")){
             mainLayout.setBackgroundResource(R.drawable.dooropen);
             playSfx(3);
+            keepState();
             Toast toast = Toast.makeText(getApplicationContext(),"You Win!!",Toast.LENGTH_LONG);
             toast.show();
         }

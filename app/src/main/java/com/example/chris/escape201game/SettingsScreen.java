@@ -21,7 +21,7 @@ public class SettingsScreen extends Escape201Game {
         sfxChbx = (CheckBox) findViewById(R.id.sfxChbxID);
         tipsChbx = (CheckBox) findViewById(R.id.tipsChbxID);
 
-        State myState = ((State) getApplicationContext());
+        GameState myState = ((GameState) getApplicationContext());
         musicChbx.setChecked(myState.getMusicOn());
         sfxChbx.setChecked(myState.getSfxOn());
         tipsChbx.setChecked(myState.getTipsOn());
@@ -52,7 +52,7 @@ public class SettingsScreen extends Escape201Game {
         //Victor
         //after validating checkbox, use set methods in State.
         boolean checked = ((CheckBox) view).isChecked();
-        State myState = ((State) getApplicationContext());
+        GameState myState = ((GameState) getApplicationContext());
 
         //check which checkbox was clicked
         switch(view.getId()){

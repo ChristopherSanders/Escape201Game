@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,9 +40,11 @@ public class Escape201Game extends Activity {
         musicChbx = (CheckBox) findViewById(R.id.musicChbxID);
         sfxChbx = (CheckBox) findViewById(R.id.sfxChbxID);
         tipsChbx = (CheckBox) findViewById(R.id.tipsChbxID);
-        mPlayer = MediaPlayer.create(this, R.raw.song1);
+
+        //victor
+        mPlayer = MediaPlayer.create(this, R.raw.song_screens);
         sfxPlayer = MediaPlayer.create(this, R.raw.sfx_default);
-        currentSong = R.raw.song1;
+        currentSong = R.raw.song_screens;
         if (myState.getSingleRun()){
             Log.d("Escape201Game", "singleRun is true");
         }
@@ -132,6 +135,27 @@ public class Escape201Game extends Activity {
         Intent intent = new Intent(this, LevelandSettingsScreen.class);
         startActivity(intent);
     }
+
+    public void setMPlayerSong(int song){
+        //victor
+        if (mPlayer.isPlaying()){
+            mPlayer.stop();
+        }
+        mPlayer.reset();
+        if (song == 0){
+            mPlayer = MediaPlayer.create(this, R.raw.song_screens);
+            currentSong = R.raw.song_screens;
+        } else if (song == 1){
+            mPlayer = MediaPlayer.create(this, R.raw.song_level1);
+            currentSong = R.raw.song_level1;
+        } else if (song == 2){
+            mPlayer = MediaPlayer.create(this, R.raw.song2);
+            currentSong = R.raw.song_level2;
+        } else {
+            mPlayer = MediaPlayer.create(this, R.raw.song4);
+            currentSong = R.raw.song4;
+        }
+    }
     
     public void playSfx(int soundEffect){
         //victor
@@ -144,7 +168,7 @@ public class Escape201Game extends Activity {
         GameState myState = ((GameState) getApplicationContext());
         sfxPlayer.reset();
         sfxPlayer = MediaPlayer.create(this, R.raw.sfx_default);
-        if (myState.getSingleRun()) {
+        if (myState.getSfxOn()) {
             if (soundEffect != 0) {
                 //play a specific sound, see above comment for description
                 if (soundEffect == 1) {
