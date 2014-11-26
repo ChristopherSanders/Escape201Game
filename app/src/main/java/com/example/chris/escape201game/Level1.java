@@ -76,11 +76,9 @@ public class Level1 extends Escape201Game {
 
     public void goToTrash(View v){
         View mainLayout = findViewById(R.id.level1_layout);
-        mainLayout.setBackgroundResource(R.drawable.trashcanwithdots);
+        mainLayout.setBackgroundResource(R.drawable.l1trashcan);
         setButtonsGone();
-        Toast toast = Toast.makeText(getApplicationContext(),"You see the numbers 476 in the trash!",Toast.LENGTH_LONG);
         playSfx(0);
-        toast.show();
 
         l1_currentScreen = "trash";
     }
