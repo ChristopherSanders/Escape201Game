@@ -265,7 +265,7 @@ public class Level2 extends Escape201Game {
         View mainLayout = findViewById(R.id.level2_layout);
         String str = l2_codeText.getText().toString();
         //if good code door open
-        if (str.equals("6378")){
+        if (str.equals("3867")){
             playSfx(3);
             setButtonsGone();
             mainLayout.setBackgroundResource(R.drawable.doorviewdooropen);
