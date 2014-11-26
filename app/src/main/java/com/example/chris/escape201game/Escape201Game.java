@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.util.Log;
+import android.os.Environment;
+import java.io.IOException;
 
 
 public class Escape201Game extends Activity {
@@ -134,9 +136,35 @@ public class Escape201Game extends Activity {
     }
     
     public void playSfx(int soundEffect){
+        //victor
+        //0 .. default (popping sound)
+        //if no special sfx is define, play 0
+        //1 .. lightswitch
+        //2 .. doorclosing
+        //3 .. unlock
         State myState = ((State) getApplicationContext());
+        sfxPlayer.reset();
+        sfxPlayer = MediaPlayer.create(this, R.raw.sfx_default);
         if (myState.getSfxOn()) {
-            
+            if (soundEffect != 0) {
+                //play a specific sound, see above comment for description
+                if (soundEffect == 1) {
+                    if (!sfxPlayer.isPlaying()){
+                        sfxPlayer.reset();
+                        sfxPlayer = MediaPlayer.create(this, R.raw.sfx_lightswitch);
+                    }
+                } else if (soundEffect == 2){
+                    if (!sfxPlayer.isPlaying()){
+                        sfxPlayer.reset();
+                        sfxPlayer = MediaPlayer.create(this, R.raw.sfx_doorclosing);
+                    }
+                } else if (soundEffect == 3){
+                    if (!sfxPlayer.isPlaying()){
+                        sfxPlayer.reset();
+                        sfxPlayer = MediaPlayer.create(this, R.raw.sfx_doorunlock);
+                    }
+                }
+            }
             sfxPlayer.start();
         }
     }
