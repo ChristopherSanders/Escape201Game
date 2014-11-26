@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 public class Level2 extends Escape201Game {
     private EditText l2_codeText;
-    private boolean l2_clockHand_selected;
+    private boolean l2_clockHand_selected, l2_screenUp;
     Button l2_keypadBtn, l2_projBtn, l2_doorBtn, l2_trashCanBtn, l2_clockBtn, l2_selectClockBtn, l2_whiteBoardBtn, l2_clockHandBtn, l2_lightSwitchBtn,
             l2_backBtn, l2_dropScreenBtn, l2_doorViewBtn;
     ImageButton  l2_inventory_clockHandBtn;
@@ -37,6 +37,8 @@ public class Level2 extends Escape201Game {
         l2_backBtn = (Button) findViewById(R.id.l2_backBtnId);
         l2_dropScreenBtn = (Button) findViewById(R.id.l2_dropScreenBtnId);
         l2_doorViewBtn = (Button) findViewById(R.id.l2_doorViewBtnId);
+
+        l2_screenUp = true;
     }
 
 
@@ -59,18 +61,22 @@ public class Level2 extends Escape201Game {
         return super.onOptionsItemSelected(item);
     }
 
-    //change whether drop screen is up or down
+    //change whether drop screen is up or down - Chris
     public void changeDropScreen(View v){
+        setButtonsGone();
         View mainLayout = findViewById(R.id.level2_layout);
-        //if drop screen down
+        if (l2_screenUp == false) {//drop screen down
             mainLayout.setBackgroundResource(R.drawable.screenup);
-        //if drop screen up
+        }
+        if (l2_screenUp == true) {//drop screen up
             mainLayout.setBackgroundResource(R.drawable.screendown);
+        }
     }
 
     // Deans edit
     public void l2_goToKeypad(View v){
         //change the background
+        setButtonsGone();
         View mainLayout = findViewById(R.id.level2_layout);
         mainLayout.setBackgroundResource(R.drawable.keypadondoor);
         l2_codeText.setVisibility(View.VISIBLE);
