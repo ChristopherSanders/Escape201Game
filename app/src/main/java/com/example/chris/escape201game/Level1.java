@@ -88,7 +88,7 @@ public class Level1 extends Escape201Game {
     public void goToPreviousView(View v){
         setButtonsGone();
         if ((l1_currentScreen.equals("main"))) {
-            goToMainView(v);
+            onBackPressed();
         }
         if ((l1_currentScreen.equals("keypad")) || (l1_currentScreen.equals("trash")) ) {
             goToMainView(v);//this will be changed! - Chris

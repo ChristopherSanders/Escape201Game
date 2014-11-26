@@ -228,7 +228,7 @@ public class Level2 extends Escape201Game {
 //        View mainLayout = findViewById(R.id.level2_layout);
         if ( (l2_currentScreen.equals("main")) || (l2_currentScreen.equals("complete")) ){
             //go back to level select
-            goToMainView(v);//this will be changed! - Chris
+            onBackPressed();
         }
         else if (l2_currentScreen.equals("door")) {
             goToMainView(v);
