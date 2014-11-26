@@ -1,5 +1,6 @@
 package com.example.chris.escape201game;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,11 +11,10 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 public class Level2 extends Escape201Game {
     private EditText l2_codeText;
-    private boolean l2_clockHand_selected, l2_screenUp;
+    private boolean l2_clockHand_selected, l2_screenUp, l2_leftSwitchUp, l2_rightSwitchUp, l2_clockBroken;
     Button l2_keypadBtn, l2_projBtn, l2_trashCanBtn, l2_clockBtn, l2_selectClockBtn, l2_whiteBoardBtn, l2_clockHandBtn, l2_lightSwitchBtn,
-            l2_lightSwitchLeftBtn, l2_lightSwitchRightBtn, l2_backBtn, l2_dropScreenBtn, l2_doorViewBtn;
+            l2_lightSwitchLeftBtn, l2_lightSwitchRightBtn, l2_backBtn, l2_dropScreenBtn, l2_doorViewBtn, l2_submitBtn;
     ImageButton  l2_inventory_clockHandBtn;
-    View mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,11 @@ public class Level2 extends Escape201Game {
         //Ensure when this is created that screen is up - Chris
         mainLayout.setBackgroundResource(R.drawable.screenup);
         l2_screenUp = true;
+        // Set switches are off
+        l2_leftSwitchUp = false;
+        l2_rightSwitchUp = false;
+        // Set clock as broken
+        l2_clockBroken = true;
 
         //buttons, codetext
         l2_codeText = (EditText) findViewById(R.id.l2_codeTextId);
@@ -42,6 +47,7 @@ public class Level2 extends Escape201Game {
         l2_backBtn = (Button) findViewById(R.id.l2_backBtnId);
         l2_dropScreenBtn = (Button) findViewById(R.id.l2_dropScreenBtnId);
         l2_doorViewBtn = (Button) findViewById(R.id.l2_doorViewBtnId);
+        l2_submitBtn = (Button) findViewById(R.id.l2_submitBtnId);
     }
 
 
@@ -68,44 +74,59 @@ public class Level2 extends Escape201Game {
     public void changeDropScreen(View v){
         setButtonsGone();
         View mainLayout = findViewById(R.id.level2_layout);
-        if (l2_screenUp == false) {//drop screen down
+        if (!l2_screenUp) {//drop screen down
             mainLayout.setBackgroundResource(R.drawable.screenup);
         }
-        if (l2_screenUp == true) {//drop screen up
+        else if (l2_screenUp) {//drop screen up
             mainLayout.setBackgroundResource(R.drawable.screendown);
         }
         l2_dropScreenBtn.setVisibility(View.INVISIBLE);
         l2_doorViewBtn.setVisibility(View.INVISIBLE);
     }
 
-    // Deans edit
+    //Zoom to keypad and enable buttons - Chris/Dean
     public void goToKeypad_2(View v){
         //change the background
         setButtonsGone();
         View mainLayout = findViewById(R.id.level2_layout);
         mainLayout.setBackgroundResource(R.drawable.room201keypad);
         l2_codeText.setVisibility(View.VISIBLE);
-        submitBtn.setVisibility(View.VISIBLE);
-//        codeText.setBackgroundColor(Color.argb(79, 99, 00, 04));//red and semi-transparent
-//
-//        keypadBtn.setVisibility(View.GONE);
-//        trashBtn.setVisibility(View.GONE);
-//        lightSwitchBtn.setVisibility(View.GONE);
+        l2_submitBtn.setVisibility(View.VISIBLE);
+        l2_codeText.setBackgroundColor(Color.argb(79, 99, 00, 04));//Set text box to red and semi-transparent - Chris
     }
 
+    //Zoom to the light switch - Chris
     public void goToLightSwitch_2(View v){
         setButtonsGone();
         View mainLayout = findViewById(R.id.level2_layout);
-        mainLayout.setBackgroundResource(R.drawable.room201keypad);
+        if ((!l2_rightSwitchUp) & (!l2_leftSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch00);
+        }
+        else if ((!l2_rightSwitchUp) & (l2_leftSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch01);
+        }
+        else if ((l2_rightSwitchUp) & (!l2_leftSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch10);
+        }
+       else if ((l2_rightSwitchUp) & (l2_leftSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch11);
+        }
+        l2_lightSwitchLeftBtn.setVisibility(View.INVISIBLE);
+        l2_lightSwitchRightBtn.setVisibility(View.INVISIBLE);
     }
 
-
+    //Zoom to clock view - Chris
     public void goToClock_2(View v){
+        setButtonsGone();
         View mainLayout = findViewById(R.id.level2_layout);
-        mainLayout.setBackgroundResource(R.drawable.clockl2);
-
-        backBtn.setVisibility(View.VISIBLE);
-
+        //if broken show no hands if fixed show with hands
+        if (l2_clockBroken) {
+            mainLayout.setBackgroundResource(R.drawable.clocknohands);
+        }
+        if (!l2_clockBroken){
+            mainLayout.setBackgroundResource(R.drawable.clockwhands);
+        }
+        l2_clockHandBtn.setVisibility(View.INVISIBLE);
     }
 
     public void goToDoor_2(View v){
