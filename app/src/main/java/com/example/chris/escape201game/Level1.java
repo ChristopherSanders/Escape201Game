@@ -50,7 +50,7 @@ public class Level1 extends Escape201Game {
         return super.onOptionsItemSelected(item);
     }
 
-    public void gotoKeypad(View v){
+    public void goToKeypad(View v){
         //change the background
         View mainLayout = findViewById(R.id.level1_layout);
         mainLayout.setBackgroundResource(R.drawable.keypadondoor);
@@ -63,11 +63,7 @@ public class Level1 extends Escape201Game {
         //lightSwitchBtn.setVisibility(View.GONE);
     }
 
-//    public void gotoLightSwitch(View v){
-//
-//    }
-
-    public void gotoTrash(View v){
+    public void goToTrash(View v){
         View mainLayout = findViewById(R.id.level1_layout);
         mainLayout.setBackgroundResource(R.drawable.trashcanwithdots);
 
@@ -81,7 +77,7 @@ public class Level1 extends Escape201Game {
         backBtn.setVisibility(View.VISIBLE);
     }
 
-    public void gotoMainView(View v){
+    public void goToPreviousView(View v){
         View mainLayout = findViewById(R.id.level1_layout);
         mainLayout.setBackgroundResource(R.drawable.doorclosed);
 
