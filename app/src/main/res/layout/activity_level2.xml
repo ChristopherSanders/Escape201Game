@@ -194,6 +194,6 @@
         android:textSize="11dp"
         android:textStyle="normal|bold"
         android:textColor="#99959900"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
 </RelativeLayout>
