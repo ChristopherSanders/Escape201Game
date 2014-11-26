@@ -305,14 +305,14 @@ public class Level2 extends Escape201Game {
         }
 
         //Set layout to reflect switch change
-        if ((!l2_rightSwitchUp) && (!l2_leftSwitchUp)) {
+        if ((!l2_leftSwitchUp) && (!l2_rightSwitchUp)) {
             mainLayout.setBackgroundResource(R.drawable.lightswitch00);
         }
-        else if ((!l2_rightSwitchUp) && (l2_leftSwitchUp)) {
-            mainLayout.setBackgroundResource(R.drawable.lightswitch01);
-        }
-        else if ((l2_rightSwitchUp) && (!l2_leftSwitchUp)) {
+        else if ((l2_leftSwitchUp) && (!l2_rightSwitchUp)) {
             mainLayout.setBackgroundResource(R.drawable.lightswitch10);
+        }
+        else if ((!l2_leftSwitchUp) && (l2_rightSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch01);
         }
         else if ((l2_rightSwitchUp) && (l2_leftSwitchUp)) {
             mainLayout.setBackgroundResource(R.drawable.lightswitch11);
@@ -330,7 +330,6 @@ public class Level2 extends Escape201Game {
         l2_whiteBoardBtn.setVisibility(View.GONE);
         l2_clockHandBtn.setVisibility(View.GONE);
         l2_lightSwitchBtn.setVisibility(View.GONE);
-//        l2_inventory_clockHandBtn.setVisibility(View.GONE);
         l2_backBtn.setVisibility(View.VISIBLE);
         l2_dropScreenBtn.setVisibility(View.GONE);
         l2_doorViewBtn.setVisibility(View.GONE);
