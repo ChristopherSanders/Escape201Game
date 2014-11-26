@@ -38,10 +38,12 @@ public class LevelandSettingsScreen extends Escape201Game {
     public void gotoLevelSelectActivity(View v){
         Intent intent = new Intent(this, LevelSelectScreen.class);
         startActivity(intent);
+        playSfx(0);
     }
 
     public void gotoSettingsActivity(View v){
         Intent intent = new Intent(this, SettingsScreen.class);
         startActivity(intent);
+        playSfx(0);
     }
 }

@@ -74,6 +74,7 @@ public class Level1 extends Escape201Game {
         //lightSwitchBtn.setVisibility(View.GONE);
 
         Toast toast = Toast.makeText(getApplicationContext(),"You see the numbers 476 in the trash!",Toast.LENGTH_LONG);
+        playSfx(0);
         toast.show();
 
         backBtn.setVisibility(View.VISIBLE);

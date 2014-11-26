@@ -105,6 +105,7 @@ public class Level2 extends Escape201Game {
         setButtonsGone();
         View mainLayout = findViewById(R.id.level2_layout);
         mainLayout.setBackgroundResource(R.drawable.room201keypad);
+        playSfx(0);
         l2_codeText.setVisibility(View.VISIBLE);
         l2_submitBtn.setVisibility(View.VISIBLE);
         l2_codeText.setBackgroundColor(Color.argb(79, 99, 00, 04));//Set text box to red and semi-transparent - Chris
@@ -138,6 +139,7 @@ public class Level2 extends Escape201Game {
         setButtonsGone();
         View mainLayout = findViewById(R.id.level2_layout);
         //if broken show no hands if fixed show with hands
+        playSfx(0);
         if (l2_clockBroken) {
             mainLayout.setBackgroundResource(R.drawable.clocknohands);
             l2_fixClockBtn.setVisibility(View.VISIBLE);
@@ -159,6 +161,7 @@ public class Level2 extends Escape201Game {
             mainLayout.setBackgroundResource(R.drawable.doorviewclockfixed);
         }
         setButtonsGone();
+        playSfx(0);
         l2_clockBtn.setVisibility(View.VISIBLE);
         l2_trashCanBtn.setVisibility(View.VISIBLE);
         l2_keypadBtn.setVisibility(View.VISIBLE);
@@ -171,6 +174,7 @@ public class Level2 extends Escape201Game {
     public void goToWhiteBoard_2(View v) {
         //change the background
         setButtonsGone();
+        playSfx(0);
         View mainLayout = findViewById(R.id.level2_layout);
         // if clock hand not found enable button and show on board otherwise show it removed - Chris
         if (!l2_clockHandFound) {
@@ -186,6 +190,7 @@ public class Level2 extends Escape201Game {
     //Zoom into trash can
     public void goToTrash_2(View v){
         setButtonsGone();
+        playSfx(0);
         View mainLayout = findViewById(R.id.level2_layout);
         mainLayout.setBackgroundResource(R.drawable.trashcanl2);
         l2_currentScreen = "trash";
@@ -194,6 +199,7 @@ public class Level2 extends Escape201Game {
     // Go to main view - Chris
     public void goToMainView(View v) {
         setButtonsGone();
+
         View mainLayout = findViewById(R.id.level2_layout);
         if (l2_screenUp) {//drop screen down
             mainLayout.setBackgroundResource(R.drawable.screenup);
@@ -226,6 +232,7 @@ public class Level2 extends Escape201Game {
     // Pick up clock piece for later use - Chris
     public void pickUpClockPiece(View v){
         setButtonsGone();
+        playSfx(0);
         View mainLayout = findViewById(R.id.level2_layout);
         l2_clockHandFound = true;
         // pick up clock piece, change view, and display message - Chris
@@ -237,6 +244,7 @@ public class Level2 extends Escape201Game {
     // Fix the clock if broken - Chris
     public void fixClock(View v){
         setButtonsGone();
+        playSfx(0);
 //        View mainLayout = findViewById(R.id.level2_layout);
         //if clock piece found then it fixes it - Chris
         if (l2_clockHandFound) {
@@ -269,6 +277,7 @@ public class Level2 extends Escape201Game {
     // Change the lights for the left switch
     public void changeLeftSwitch(View v){
         View mainLayout = findViewById(R.id.level2_layout);
+        playSfx(1);
         // Change light switch boolean
         if (l2_leftSwitchUp) {
             l2_leftSwitchUp = false;
@@ -296,6 +305,7 @@ public class Level2 extends Escape201Game {
     //change the lights for the right switch
     public void changeRightSwitch(View v){
         View mainLayout = findViewById(R.id.level2_layout);
+        playSfx(1);
         // Change light switch boolean
         if (l2_rightSwitchUp) {
             l2_rightSwitchUp = false;

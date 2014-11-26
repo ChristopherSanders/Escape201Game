@@ -134,6 +134,7 @@ public class Escape201Game extends Activity {
     public void gotoActivity(View v){
         Intent intent = new Intent(this, LevelandSettingsScreen.class);
         startActivity(intent);
+        playSfx(0);
     }
 
     public void setMPlayerSong(int song){
