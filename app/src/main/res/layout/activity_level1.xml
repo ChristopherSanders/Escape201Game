@@ -34,7 +34,7 @@
         android:textColor="#ffffffff"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="200dp"
+        android:layout_marginLeft="225dp"
         android:layout_alignBottom="@+id/submitBtnID" />
 
     <Button
