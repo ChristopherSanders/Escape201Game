@@ -14,7 +14,7 @@ public class Level2 extends Escape201Game {
     private String l2_currentScreen;
     private boolean l2_clockHand_selected, l2_screenUp, l2_leftSwitchUp, l2_rightSwitchUp, l2_clockBroken, l2_clockHandFound;
     Button l2_keypadBtn, l2_projBtn, l2_trashCanBtn, l2_clockBtn, l2_selectClockBtn, l2_whiteBoardBtn, l2_clockHandBtn, l2_lightSwitchBtn,
-            l2_lightSwitchLeftBtn, l2_lightSwitchRightBtn, l2_backBtn, l2_dropScreenBtn, l2_doorViewBtn, l2_submitBtn;
+            l2_lightSwitchLeftBtn, l2_lightSwitchRightBtn, l2_backBtn, l2_dropScreenBtn, l2_doorViewBtn, l2_submitBtn, l2_fixClockBtn;
     ImageButton  l2_inventory_clockHandBtn;
 
     @Override
@@ -44,7 +44,7 @@ public class Level2 extends Escape201Game {
         l2_trashCanBtn = (Button) findViewById(R.id.l2_trashCanBtnId);
         l2_clockBtn = (Button) findViewById(R.id.l2_clockBtnId);
         l2_selectClockBtn = (Button) findViewById(R.id.l2_selectClockBtnId);
-        l2_whiteBoardBtn = (Button) findViewById(R.id.l2_whiteBoardBtnId);
+//        l2_whiteBoardBtn = (Button) findViewById(R.id.l2_whiteBoardBtnId);
         l2_clockHandBtn = (Button) findViewById(R.id.l2_clockHandBtnId);
         l2_lightSwitchBtn = (Button) findViewById(R.id.l2_lightSwitchBtnId);
         l2_lightSwitchLeftBtn = (Button) findViewById(R.id.l2_lightSwitchLeftBtnId);
@@ -54,6 +54,7 @@ public class Level2 extends Escape201Game {
         l2_dropScreenBtn = (Button) findViewById(R.id.l2_dropScreenBtnId);
         l2_doorViewBtn = (Button) findViewById(R.id.l2_doorViewBtnId);
         l2_submitBtn = (Button) findViewById(R.id.l2_submitBtnId);
+        l2_fixClockBtn = (Button) findViewById(R.id.l2_fixClockBtnId);
     }
 
 
@@ -210,13 +211,15 @@ public class Level2 extends Escape201Game {
             goToMainView(v);
         }
         else if ( (l2_currentScreen.equals("keypad")) || (l2_currentScreen.equals("lightswitch")) ||
-                (l2_currentScreen.equals("whiteboard")) || (l2_currentScreen.equals("trash")) ){
+                (l2_currentScreen.equals("whiteboard")) || (l2_currentScreen.equals("trash")) ||
+                (l2_currentScreen.equals("clock")) ){
             goToDoor_2(v);
         }
     }
 
     // Pick up clock piece for later use
     public void pickUpClockPiece(View v){
+        setButtonsGone();
         View mainLayout = findViewById(R.id.level2_layout);
         l2_clockHandFound = true;
         // pick up clock piece, change view, and display message - Chris
@@ -224,6 +227,18 @@ public class Level2 extends Escape201Game {
         Toast toast = Toast.makeText(getApplicationContext(),"You found a clock piece!",Toast.LENGTH_LONG);
         toast.show();
     }
+
+    // Fix the clock if broken
+    public void fixClock(View v){
+        setButtonsGone();
+//        View mainLayout = findViewById(R.id.level2_layout);
+        //if clock piece found then it fixes it
+        if (l2_clockHandFound) {
+            l2_clockBroken = false;
+            goToPreviousView(v);
+        }
+    }
+
 
     public void saveToCode(View v) {
         //change the background
@@ -266,6 +281,7 @@ public class Level2 extends Escape201Game {
         l2_dropScreenBtn.setVisibility(View.GONE);
         l2_doorViewBtn.setVisibility(View.GONE);
         l2_submitBtn.setVisibility(View.GONE);
+        l2_fixClockBtn.setVisibility(View.GONE);
     }
 
 
