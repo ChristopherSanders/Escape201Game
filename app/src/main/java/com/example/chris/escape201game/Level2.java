@@ -13,7 +13,7 @@ public class Level2 extends Escape201Game {
     private EditText l2_codeText;
     private String l2_currentScreen;
     private boolean l2_clockHand_selected, l2_screenUp, l2_leftSwitchUp, l2_rightSwitchUp, l2_clockBroken, l2_clockHandFound;
-    Button l2_keypadBtn, l2_projBtn, l2_trashCanBtn, l2_clockBtn, l2_selectClockBtn, l2_whiteBoardBtn, l2_clockHandBtn, l2_lightSwitchBtn,
+    Button l2_keypadBtn, l2_trashCanBtn, l2_clockBtn, l2_whiteBoardBtn, l2_clockHandBtn, l2_lightSwitchBtn,
             l2_lightSwitchLeftBtn, l2_lightSwitchRightBtn, l2_backBtn, l2_dropScreenBtn, l2_doorViewBtn, l2_submitBtn, l2_fixClockBtn;
     ImageButton  l2_inventory_clockHandBtn;
 
@@ -40,16 +40,14 @@ public class Level2 extends Escape201Game {
         //buttons, codetext
         l2_codeText = (EditText) findViewById(R.id.l2_codeTextId);
         l2_keypadBtn = (Button) findViewById(R.id.l2_keypadBtnId);
-        l2_projBtn = (Button) findViewById(R.id.l2_projBtnId);
         l2_trashCanBtn = (Button) findViewById(R.id.l2_trashCanBtnId);
         l2_clockBtn = (Button) findViewById(R.id.l2_clockBtnId);
-        l2_selectClockBtn = (Button) findViewById(R.id.l2_selectClockBtnId);
-//        l2_whiteBoardBtn = (Button) findViewById(R.id.l2_whiteBoardBtnId);
+        l2_whiteBoardBtn = (Button) findViewById(R.id.l2_whiteBoardBtnId);
         l2_clockHandBtn = (Button) findViewById(R.id.l2_clockHandBtnId);
         l2_lightSwitchBtn = (Button) findViewById(R.id.l2_lightSwitchBtnId);
         l2_lightSwitchLeftBtn = (Button) findViewById(R.id.l2_lightSwitchLeftBtnId);
         l2_lightSwitchRightBtn = (Button) findViewById(R.id.l2_lightSwitchRightBtnId);
-        l2_inventory_clockHandBtn = (ImageButton) findViewById(R.id.l2_inventory_clockHandBtnId);
+//        l2_inventory_clockHandBtn = (ImageButton) findViewById(R.id.l2_inventory_clockHandBtnId);
         l2_backBtn = (Button) findViewById(R.id.l2_backBtnId);
         l2_dropScreenBtn = (Button) findViewById(R.id.l2_dropScreenBtnId);
         l2_doorViewBtn = (Button) findViewById(R.id.l2_doorViewBtnId);
@@ -204,7 +202,7 @@ public class Level2 extends Escape201Game {
     public void goToPreviousView(View v){
         setButtonsGone();
 //        View mainLayout = findViewById(R.id.level2_layout);
-        if (l2_currentScreen.equals("main")) {
+        if ( (l2_currentScreen.equals("main")) || (l2_currentScreen.equals("complete")) ){
             //go back to level select
         }
         else if (l2_currentScreen.equals("door")) {
@@ -217,7 +215,7 @@ public class Level2 extends Escape201Game {
         }
     }
 
-    // Pick up clock piece for later use
+    // Pick up clock piece for later use - Chris
     public void pickUpClockPiece(View v){
         setButtonsGone();
         View mainLayout = findViewById(R.id.level2_layout);
@@ -228,25 +226,27 @@ public class Level2 extends Escape201Game {
         toast.show();
     }
 
-    // Fix the clock if broken
+    // Fix the clock if broken - Chris
     public void fixClock(View v){
         setButtonsGone();
 //        View mainLayout = findViewById(R.id.level2_layout);
-        //if clock piece found then it fixes it
+        //if clock piece found then it fixes it - Chris
         if (l2_clockHandFound) {
             l2_clockBroken = false;
             goToPreviousView(v);
         }
     }
 
-
+    //fixed to work for the code in level 2 - Chris
     public void saveToCode(View v) {
         //change the background
         View mainLayout = findViewById(R.id.level2_layout);
         String str = l2_codeText.getText().toString();
         //if good code door open
         if (str.equals("6378")){
+            setButtonsGone();
             mainLayout.setBackgroundResource(R.drawable.doorviewdooropen);
+            l2_currentScreen = "complete";
             Toast toast = Toast.makeText(getApplicationContext(),"You Win!!",Toast.LENGTH_LONG);
             toast.show();
         }
@@ -254,14 +254,61 @@ public class Level2 extends Escape201Game {
         else {
             Toast toast = Toast.makeText(getApplicationContext(),"Passcode Incorrect!",Toast.LENGTH_SHORT);
             toast.show();
-
         }
-        l2_codeText.setVisibility(View.GONE);
-//        submitBtn.setVisibility(View.GONE);
-//
-//        keypadBtn.setVisibility(View.VISIBLE);
-//        trashBtn.setVisibility(View.VISIBLE);
-//        lightSwitchBtn.setVisibility(View.VISIBLE);
+    }
+
+    // Change the lights for the left switch
+    public void changeLeftSwitch(View v){
+        View mainLayout = findViewById(R.id.level2_layout);
+        // Change light switch boolean
+        if (l2_leftSwitchUp) {
+            l2_leftSwitchUp = false;
+        }
+        else if (!l2_leftSwitchUp){
+            l2_leftSwitchUp = true;
+        }
+
+        //Set layout to reflect switch change
+        if ((!l2_rightSwitchUp) && (!l2_leftSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch00);
+        }
+        else if ((!l2_rightSwitchUp) && (l2_leftSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch01);
+        }
+        else if ((l2_rightSwitchUp) && (!l2_leftSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch10);
+        }
+        else if ((l2_rightSwitchUp) && (l2_leftSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch11);
+        }
+        l2_currentScreen = "lightswitch";
+    }
+
+    //change the lights for the right switch
+    public void changeRightSwitch(View v){
+        View mainLayout = findViewById(R.id.level2_layout);
+        // Change light switch boolean
+        if (l2_rightSwitchUp) {
+            l2_rightSwitchUp = false;
+        }
+        else if (!l2_rightSwitchUp){
+            l2_rightSwitchUp = true;
+        }
+
+        //Set layout to reflect switch change
+        if ((!l2_rightSwitchUp) && (!l2_leftSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch00);
+        }
+        else if ((!l2_rightSwitchUp) && (l2_leftSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch01);
+        }
+        else if ((l2_rightSwitchUp) && (!l2_leftSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch10);
+        }
+        else if ((l2_rightSwitchUp) && (l2_leftSwitchUp)) {
+            mainLayout.setBackgroundResource(R.drawable.lightswitch11);
+        }
+        l2_currentScreen = "lightswitch";
     }
 
     //set all buttons to gone at change of background - Chris
@@ -269,10 +316,8 @@ public class Level2 extends Escape201Game {
     public void setButtonsGone(){
         l2_codeText.setVisibility(View.GONE);
         l2_keypadBtn.setVisibility(View.GONE);
-        l2_projBtn.setVisibility(View.GONE);
         l2_trashCanBtn.setVisibility(View.GONE);
         l2_clockBtn.setVisibility(View.GONE);
-        l2_selectClockBtn.setVisibility(View.GONE);
         l2_whiteBoardBtn.setVisibility(View.GONE);
         l2_clockHandBtn.setVisibility(View.GONE);
         l2_lightSwitchBtn.setVisibility(View.GONE);
