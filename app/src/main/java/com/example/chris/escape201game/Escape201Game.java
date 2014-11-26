@@ -136,22 +136,32 @@ public class Escape201Game extends Activity {
     }
     
     public void playSfx(int soundEffect){
+        //victor
+        //0 .. default (popping sound)
+        //if no special sfx is define, play 0
+        //1 .. lightswitch
+        //2 .. doorclosing
+        //3 .. unlock
         State myState = ((State) getApplicationContext());
         sfxPlayer.reset();
         sfxPlayer = MediaPlayer.create(this, R.raw.sfx_default);
         if (myState.getSfxOn()) {
             if (soundEffect != 0) {
-
+                //play a specific sound, see above comment for description
                 if (soundEffect == 1) {
                     if (!sfxPlayer.isPlaying()){
-//                        String path = Environment.getExternalStorageDirectory()+"Escape201Game/app/src/main/res/raw/sfx_lightswitch.mp3";
-//                        try {
-//                            sfxPlayer.setDataSource(path);
-//                        } catch (IOException e){
-//                            Log.d("Escape201Game", "error in sfx");
-//                        }
                         sfxPlayer.reset();
                         sfxPlayer = MediaPlayer.create(this, R.raw.sfx_lightswitch);
+                    }
+                } else if (soundEffect == 2){
+                    if (!sfxPlayer.isPlaying()){
+                        sfxPlayer.reset();
+                        sfxPlayer = MediaPlayer.create(this, R.raw.sfx_doorclosing);
+                    }
+                } else if (soundEffect == 3){
+                    if (!sfxPlayer.isPlaying()){
+                        sfxPlayer.reset();
+                        sfxPlayer = MediaPlayer.create(this, R.raw.sfx_doorunlock);
                     }
                 }
             }
