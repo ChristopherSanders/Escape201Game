@@ -77,7 +77,7 @@ public class SettingsScreen extends Escape201Game {
                     myState.setTipsOn(false);
                 break;
         }
-        playSfx(1);
+        playSfx(0);
         keepState();
     }
 }

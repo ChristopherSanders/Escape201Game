@@ -24,7 +24,6 @@ public class Level1 extends Escape201Game {
         keypadBtn = (Button) findViewById(R.id.keypadBtnID);
         submitBtn = (Button) findViewById(R.id.submitBtnID);
         trashBtn = (ImageButton) findViewById(R.id.trashBtnID);
-        lightSwitchBtn = (ImageButton) findViewById(R.id.lightSwitchBtnID);
         backBtn = (Button) findViewById(R.id.backBtnID);
     }
 

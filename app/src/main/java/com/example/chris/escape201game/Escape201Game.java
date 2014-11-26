@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.util.Log;
+import android.os.Environment;
+import java.io.IOException;
 
 
 public class Escape201Game extends Activity {
@@ -135,8 +137,24 @@ public class Escape201Game extends Activity {
     
     public void playSfx(int soundEffect){
         State myState = ((State) getApplicationContext());
+        sfxPlayer.reset();
+        sfxPlayer = MediaPlayer.create(this, R.raw.sfx_default);
         if (myState.getSfxOn()) {
-            
+            if (soundEffect != 0) {
+
+                if (soundEffect == 1) {
+                    if (!sfxPlayer.isPlaying()){
+//                        String path = Environment.getExternalStorageDirectory()+"Escape201Game/app/src/main/res/raw/sfx_lightswitch.mp3";
+//                        try {
+//                            sfxPlayer.setDataSource(path);
+//                        } catch (IOException e){
+//                            Log.d("Escape201Game", "error in sfx");
+//                        }
+                        sfxPlayer.reset();
+                        sfxPlayer = MediaPlayer.create(this, R.raw.sfx_lightswitch);
+                    }
+                }
+            }
             sfxPlayer.start();
         }
     }
