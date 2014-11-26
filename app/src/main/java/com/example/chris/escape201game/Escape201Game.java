@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.util.Log;
-import android.os.Environment;
-import java.io.IOException;
 
 
 public class Escape201Game extends Activity {
@@ -27,7 +25,7 @@ public class Escape201Game extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escape201_game);
-        State myState = ((State) getApplicationContext());
+        GameState myState = ((GameState) getApplicationContext());
 
 
 
@@ -69,7 +67,7 @@ public class Escape201Game extends Activity {
         //each activity calls keepState in its create after calling super.onCreate
 
         //get from appplicationcontext
-        State myState = ((State) getApplicationContext());
+        GameState myState = ((GameState) getApplicationContext());
 
         if (myState.getMusicOn()){
             Log.d("Escape201Game", "musicOn is true, resuming music");
@@ -143,10 +141,10 @@ public class Escape201Game extends Activity {
         //2 .. doorclosing
         //3 .. unlock
         //4 .. beep (type 1)
-        State myState = ((State) getApplicationContext());
+        GameState myState = ((GameState) getApplicationContext());
         sfxPlayer.reset();
         sfxPlayer = MediaPlayer.create(this, R.raw.sfx_default);
-        if (myState.getSfxOn()) {
+        if (myState.getSingleRun()) {
             if (soundEffect != 0) {
                 //play a specific sound, see above comment for description
                 if (soundEffect == 1) {
