@@ -159,6 +159,10 @@ public class Escape201Game extends Activity {
         }
     }
 
+    public void setButtonsGone(){
+        //for each level override with the buttons that correspond
+    }
+
     //get & sets for music,sfx,tips
     //victor
 //    public boolean getMusicOn(){

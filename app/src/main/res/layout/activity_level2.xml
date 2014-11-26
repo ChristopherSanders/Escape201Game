@@ -7,9 +7,85 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.chris.escape201game.Level2"
-    android:background="@drawable/screenup"
+    android:background="@drawable/doorviewclocknohands"
     android:id="@+id/level2_layout"
     android:clickable="true">
 
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:id="@+id/l2_doorViewBtnId"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="goToDoor_2"
+        android:visibility="gone" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/l2_dropScreenBtnId"
+        android:layout_marginLeft="67dp"
+        android:layout_marginTop="100dp"
+        android:layout_alignTop="@+id/l2_doorViewBtnId"
+        android:layout_alignParentLeft="true"
+        android:onClick="changeDropScreen"
+        android:visibility="gone" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="125dp"
+        android:layout_height="70dp"
+        android:id="@+id/l2_trashCanBtnId"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:onClick="goToTrash_2"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="275dp"
+        android:layout_height="fill_parent"
+        android:id="@+id/l2_whiteBoardBtnId"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        android:onClick="goToWhiteBoard_2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/l2_keypadBtnId"
+        android:layout_marginRight="102dp"
+        android:layout_marginBottom="89dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:onClick="goToKeypad_2"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/l2_lightSwitchBtnId"
+        android:layout_marginRight="41dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:onClick="goToLightSwitch_2"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:id="@+id/l2_clockBtnId"
+        android:layout_marginRight="121dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:onClick="goToClock_2"/>
 </RelativeLayout>
