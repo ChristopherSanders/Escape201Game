@@ -26,6 +26,7 @@ public class Level2 extends Escape201Game {
         View mainLayout = findViewById(R.id.level2_layout);
 
         //Ensure when this is created that screen is up - Chris
+        GameState myState = ((GameState) getApplicationContext());
         mainLayout.setBackgroundResource(R.drawable.screenup);
         l2_screenUp = true;
         // Set switches are off
@@ -55,7 +56,6 @@ public class Level2 extends Escape201Game {
         l2_lightSwitchBtn = (Button) findViewById(R.id.l2_lightSwitchBtnId);
         l2_lightSwitchLeftBtn = (Button) findViewById(R.id.l2_lightSwitchLeftBtnId);
         l2_lightSwitchRightBtn = (Button) findViewById(R.id.l2_lightSwitchRightBtnId);
-//        l2_inventory_clockHandBtn = (ImageButton) findViewById(R.id.l2_inventory_clockHandBtnId);
         l2_backBtn = (Button) findViewById(R.id.l2_backBtnId);
         l2_dropScreenBtn = (Button) findViewById(R.id.l2_dropScreenBtnId);
         l2_doorViewBtn = (Button) findViewById(R.id.l2_doorViewBtnId);
@@ -63,6 +63,10 @@ public class Level2 extends Escape201Game {
         l2_fixClockBtn = (Button) findViewById(R.id.l2_fixClockBtnId);
 
         l2_paperText = (TextView) findViewById(R.id.paperTextId);
+
+        if (myState.getTipsOn()){
+            enableTipsMode();
+        }
     }
 
 
@@ -224,6 +228,7 @@ public class Level2 extends Escape201Game {
 //        View mainLayout = findViewById(R.id.level2_layout);
         if ( (l2_currentScreen.equals("main")) || (l2_currentScreen.equals("complete")) ){
             //go back to level select
+            onBackPressed();
         }
         else if (l2_currentScreen.equals("door")) {
             goToMainView(v);
@@ -277,6 +282,7 @@ public class Level2 extends Escape201Game {
         else {
             Toast toast = Toast.makeText(getApplicationContext(),"Passcode Incorrect!",Toast.LENGTH_SHORT);
             toast.show();
+            l2_codeText.setText("");
         }
     }
 
@@ -378,6 +384,21 @@ public class Level2 extends Escape201Game {
         l2_lightSwitchRightBtn.setVisibility(View.GONE);
         l2_paperText.setVisibility(View.GONE);
 
+    }
+
+    @Override
+    public void enableTipsMode(){
+        l2_keypadBtn.setBackgroundColor(Color.argb(75, 00, 00, 00));
+        l2_trashCanBtn.setBackgroundColor(Color.argb(75, 00, 00, 00));
+        l2_clockBtn.setBackgroundColor(Color.argb(75, 00, 00, 00));
+        l2_whiteBoardBtn.setBackgroundColor(Color.argb(75, 00, 00, 00));
+        l2_clockHandBtn.setBackgroundColor(Color.argb(75, 00, 00, 00));
+        l2_lightSwitchBtn.setBackgroundColor(Color.argb(75, 00, 00, 00));
+        l2_dropScreenBtn.setBackgroundColor(Color.argb(75, 00, 00, 00));
+        l2_doorViewBtn.setBackgroundColor(Color.argb(75, 00, 00, 00));
+        l2_fixClockBtn.setBackgroundColor(Color.argb(75, 00, 00, 00));
+        l2_lightSwitchLeftBtn.setBackgroundColor(Color.argb(75, 00, 00, 00));
+        l2_lightSwitchRightBtn.setBackgroundColor(Color.argb(75, 00, 00, 00));
     }
 
 
