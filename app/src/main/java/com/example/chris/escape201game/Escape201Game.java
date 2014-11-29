@@ -65,8 +65,8 @@ public class Escape201Game extends Activity {
 
     public void keepState(){
         //victor
-        //keepState() is an attempt at having one function control the music,sfx, and tip states
-        //each activity calls keepState in its create after calling super.onCreate
+        //keepState() uses GameState to keep the music consistent with what a user has inputted
+        //each activity uses keepState to control music
 
         //get from appplicationcontext
         GameState myState = ((GameState) getApplicationContext());
@@ -80,7 +80,6 @@ public class Escape201Game extends Activity {
                 mPlayer.pause();
             }
         }
-        //add sfx and tips later
     }
 
     @Override
@@ -138,6 +137,7 @@ public class Escape201Game extends Activity {
 
     public void setMPlayerSong(int song){
         //victor
+        //Changes the music for a song
         if (mPlayer.isPlaying()){
             mPlayer.stop();
         }

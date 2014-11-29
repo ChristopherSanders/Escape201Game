@@ -5,7 +5,7 @@ import android.app.Application;
  * Victor
  *
  * by extending Application I can store objects/variables in it
- * which can then be accessed by activities using State mystate = ((State) getApplicationContext());
+ * which can then be accessed by activities using GameState myState = ((GameState) getApplicationContext());
  * myState.getMusicOn() will call getMusicOn in this class
  *
  * store persistent variables that can be get/set by all activities

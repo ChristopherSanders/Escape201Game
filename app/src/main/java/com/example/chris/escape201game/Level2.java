@@ -97,8 +97,7 @@ public class Level2 extends Escape201Game {
         if (!l2_screenUp) {//drop screen down
             mainLayout.setBackgroundResource(R.drawable.screenup);
             l2_screenUp = true;
-        }
-        else if (l2_screenUp) {//drop screen up
+        } else if (l2_screenUp) {//drop screen up
             mainLayout.setBackgroundResource(R.drawable.screendown);
             l2_screenUp = false;
         }
