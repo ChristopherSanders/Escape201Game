@@ -45,7 +45,7 @@ public class LevelSelectScreen extends Escape201Game {
 
     public void gotoLevel2Activity(View v){
         playSfx(0);
-        currentSong = R.raw.song3;
+        currentSong = R.raw.song_level2;
         Intent intent = new Intent(this, Level2.class);
         onResume();
         startActivity(intent);

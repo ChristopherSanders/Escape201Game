@@ -144,31 +144,35 @@ public class Level2 extends Escape201Game {
     //Zoom to clock view - Chris/ method call created by Dean
     public void goToClock_2(View v){
         setButtonsGone();
+        playSfx(0);
         View mainLayout = findViewById(R.id.level2_layout);
         //if broken show no hands if fixed show with hands
-        playSfx(0);
         if (l2_clockBroken) {
             mainLayout.setBackgroundResource(R.drawable.clocknohands);
-            l2_fixClockBtn.setVisibility(View.VISIBLE);
+            //Leave the clock button disabled until missing piece is found - Chris
+            if (l2_clockHandFound){
+                l2_fixClockBtn.setVisibility(View.VISIBLE);
+            }
         }
-        if (!l2_clockBroken){
+        else if (!l2_clockBroken){
             mainLayout.setBackgroundResource(R.drawable.clockwhands);
         }
+
         l2_currentScreen = "clock";
     }
 
     //Go to main door view - Chris/ method call created by Dean
     public void goToDoor_2(View v){
         //change the background
+        playSfx(0);
         View mainLayout = findViewById(R.id.level2_layout);
         if (l2_clockBroken) {
             mainLayout.setBackgroundResource(R.drawable.doorviewclocknohands);
         }
-        if (!l2_clockBroken){
+        else if (!l2_clockBroken){
             mainLayout.setBackgroundResource(R.drawable.doorviewclockfixed);
         }
         setButtonsGone();
-        playSfx(0);
         updatePaperText(v);
         l2_paperText.setVisibility(View.VISIBLE);
         l2_clockBtn.setVisibility(View.VISIBLE);
@@ -253,14 +257,23 @@ public class Level2 extends Escape201Game {
 
     // Fix the clock if broken - Chris
     public void fixClock(View v){
+        Toast toast;
         setButtonsGone();
         playSfx(0);
 //        View mainLayout = findViewById(R.id.level2_layout);
         //if clock piece found then it fixes it - Chris
         if (l2_clockHandFound) {
             l2_clockBroken = false;
+            toast = Toast.makeText(getApplicationContext(),"You fixed the clock!",Toast.LENGTH_LONG);
+            toast.show();
             goToPreviousView(v);
         }
+        else if (l2_clockBroken = true){
+            toast = Toast.makeText(getApplicationContext(),"The clock appears to be broken.",Toast.LENGTH_LONG);
+            toast.show();
+            l2_clockBtn.setVisibility(View.VISIBLE);
+        }
+
     }
 
     //fixed to work for the code in level 2 - Chris
